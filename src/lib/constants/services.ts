@@ -97,15 +97,21 @@ export const SERVICES: Service[] = [
     id: '6',
     title: 'Custom ERP Solutions',
     slug: 'custom-erp',
-    description: 'Tailored ERP solutions designed to meet your unique business requirements and processes.',
+    description: 'Every business is unique, and your ERP solution should be too. SAP Custom ERP empowers organizations to tailor their Enterprise Resource Planning system to meet specific business needs, driving efficiency, agility, and growth.',
     icon: 'Cog',
     category: 'sap',
     features: [
-      'Custom module development',
-      'Business process optimization',
-      'Integration with existing systems',
-      'Scalable architecture',
-      'Industry-specific solutions'
+      'Personalized Solutions: Tailor your ERP to align perfectly with your business processes, industry requirements, and strategic goals',
+      'Scalable and Flexible: Adapt and scale your ERP solution as your business grows, ensuring it continues to meet your evolving needs',
+      'Seamless Integration: Connect with existing systems and third-party applications effortlessly, creating a unified ecosystem',
+      'Future-Ready: Leverage SAP\'s robust platform to stay ahead with the latest innovations in AI, machine learning, IoT, and more',
+      'Enhanced Decision-Making: Gain deeper insights with customized reporting and analytics'
+    ],
+    benefits: [
+      'Reduced IT costs',
+      'Improved business agility',
+      'Enhanced user experience',
+      'Real-time decision making'
     ]
   },
   {
