@@ -37,30 +37,42 @@ export const SERVICES: Service[] = [
     id: '2',
     title: 'SAP Ariba',
     slug: 'sap-ariba',
-    description: 'Cloud-based procurement and supply chain management solution connecting buyers and suppliers globally.',
+    description: 'SAP Ariba is the world\'s leading cloud-based procurement solution, transforming how businesses manage their procurement processes. It offers a comprehensive platform that connects buyers and suppliers, enabling efficient and transparent transactions. By leveraging SAP Ariba, organizations can streamline their procurement operations, reduce costs, and improve supplier relationships.',
     icon: 'Cart',
     category: 'sap',
     features: [
-      'Procurement management',
-      'Supplier collaboration',
-      'Contract management',
-      'Sourcing solutions',
-      'Supply chain visibility'
+      'Comprehensive Procurement Management: Manage the entire procurement lifecycle, from sourcing and orders to invoices and payments, all on one integrated platform',
+      'Global Supplier Network: Connect with millions of suppliers worldwide, simplifying discovery, qualification, and collaboration',
+      'Enhanced Collaboration: Improve communication and foster stronger relationships with suppliers through shared documents and real-time insights',
+      'Spend Visibility: Gain clear, actionable insights into your organization\'s spending to identify savings opportunities and ensure compliance',
+      'Scalability: Whether you\'re a small business or a large enterprise, SAP Ariba scales to meet your evolving procurement needs'
+    ],
+    benefits: [
+      'Reduced procurement costs',
+      'Improved supplier relationships',
+      'Enhanced spend visibility',
+      'Streamlined procurement processes'
     ]
   },
   {
     id: '3',
     title: 'SAP SuccessFactors',
     slug: 'sap-successfactors',
-    description: 'Comprehensive cloud-based human capital management suite for workforce planning and talent management.',
+    description: 'SAP SuccessFactors offers a comprehensive suite of human capital management (HCM) solutions designed to optimize your workforce and drive business success. From talent acquisition to performance management, learning, and development, SuccessFactors provides the tools you need to attract, engage, and retain top talent.',
     icon: 'Users',
     category: 'sap',
     features: [
-      'Core HR & Payroll',
-      'Talent Management',
-      'Learning Management',
-      'Workforce Analytics',
-      'Employee Experience Management'
+      'Talent Management: Streamline your talent acquisition, onboarding, and performance management processes to identify and nurture high-potential employees',
+      'Employee Experience: Enhance employee engagement and satisfaction with personalized experiences, continuous feedback, and career development opportunities',
+      'Data-Driven Decisions: Leverage real-time analytics and insights to make informed decisions about your workforce, optimize resource allocation, and improve overall performance',
+      'Global Compliance: Ensure compliance with global and local regulations, manage workforce data securely, and mitigate risks',
+      'Seamless Integration: Integrate SuccessFactors with your existing IT landscape, including ERP systems, to create a unified and efficient HR ecosystem'
+    ],
+    benefits: [
+      'Improved employee retention',
+      'Enhanced workforce productivity',
+      'Better talent acquisition',
+      'Streamlined HR processes'
     ]
   },
   {
