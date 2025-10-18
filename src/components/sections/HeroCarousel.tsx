@@ -60,7 +60,7 @@ export function HeroCarousel() {
 
       {/* Navigation Arrows */}
       <div
-        className="carousel-nav absolute left-4 top-1/2 -translate-y-1/2 bg-[#f9d006]/90 hover:bg-[#f9d006] text-[#231f0f] w-12 h-12 rounded-full flex items-center justify-center cursor-pointer z-10"
+        className="carousel-nav absolute left-4 top-1/2 -translate-y-1/2 bg-primary/90 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center cursor-pointer z-10"
         onClick={() => changeSlide(-1)}
       >
         <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ export function HeroCarousel() {
         </svg>
       </div>
       <div
-        className="carousel-nav absolute right-4 top-1/2 -translate-y-1/2 bg-[#f9d006]/90 hover:bg-[#f9d006] text-[#231f0f] w-12 h-12 rounded-full flex items-center justify-center cursor-pointer z-10"
+        className="carousel-nav absolute right-4 top-1/2 -translate-y-1/2 bg-primary/90 hover:bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center cursor-pointer z-10"
         onClick={() => changeSlide(1)}
       >
         <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -88,7 +88,7 @@ export function HeroCarousel() {
           <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
             <Link
               href="/services"
-              className="bg-[#f9d006] text-[#231f0f] font-bold text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:opacity-90 transition-opacity text-center"
+              className="bg-primary text-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4 rounded-lg hover:bg-primary/90 transition-all text-center"
             >
               Explore Our Services
             </Link>

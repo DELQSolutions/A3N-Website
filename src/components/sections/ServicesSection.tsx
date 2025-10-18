@@ -45,7 +45,7 @@ export function ServicesSection() {
                 <span className="service-badge">{service.badge}</span>
               )}
               <div className="icon-box group-hover:rotate-6">
-                <service.icon className="w-10 h-10 text-dark" />
+                <service.icon className="w-10 h-10 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
                 {service.title}

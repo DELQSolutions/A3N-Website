@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${workSans.className} antialiased bg-[#f8f8f5] text-[#231f0f]`}>
+      <body className={`${workSans.className} antialiased bg-white text-foreground`}>
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">{children}</main>

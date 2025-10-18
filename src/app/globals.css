@@ -1,28 +1,28 @@
 @import "tailwindcss";
 
 @theme {
-  /* Biztrox Color Palette */
+  /* Sea Blue Color Palette */
   --color-background: #ffffff;
-  --color-foreground: #1e1e1e;
+  --color-foreground: #0f172a;
   --color-card: #ffffff;
-  --color-card-foreground: #1e1e1e;
+  --color-card-foreground: #0f172a;
   --color-popover: #ffffff;
-  --color-popover-foreground: #1e1e1e;
-  --color-primary: #ffc800;
-  --color-primary-foreground: #1e1e1e;
-  --color-secondary: #f8f9fa;
-  --color-secondary-foreground: #1e1e1e;
-  --color-muted: #f4f4f4;
-  --color-muted-foreground: #6c757d;
-  --color-accent: #ffc800;
-  --color-accent-foreground: #1e1e1e;
-  --color-destructive: #dc3545;
+  --color-popover-foreground: #0f172a;
+  --color-primary: #006994;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #f0f9ff;
+  --color-secondary-foreground: #0f172a;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-accent: #0891b2;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #dc2626;
   --color-destructive-foreground: #ffffff;
-  --color-border: #e9ecef;
-  --color-input: #e9ecef;
-  --color-ring: #ffc800;
-  --color-dark: #1e1e1e;
-  --color-gray: #6c757d;
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #0891b2;
+  --color-dark: #0f172a;
+  --color-gray: #64748b;
 
   --radius-sm: 0.25rem;
   --radius-md: 0.5rem;
@@ -32,196 +32,94 @@
 
 @layer base {
   * {
-    border-color: var(--color-border);
+    @apply border-border;
   }
   
   body {
-    background-color: #ffffff;
-    color: #1e1e1e;
+    @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
-    line-height: 1.6;
   }
 
   html {
     scroll-behavior: smooth;
   }
 
-  /* Heading Styles */
   h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+    @apply font-bold leading-tight;
   }
+}
 
-  /* Section Styles */
-  section {
-    position: relative;
-  }
-
+@layer components {
+  /* Section Title with line */
   .section-title {
-    position: relative;
-    display: inline-block;
-    font-size: 0.875rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #ffc800;
-    margin-bottom: 1rem;
+    @apply relative inline-block text-sm font-bold uppercase tracking-widest text-primary mb-4;
   }
 
   .section-title::before {
-    content: '';
-    position: absolute;
-    left: -30px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 20px;
-    height: 2px;
-    background-color: #ffc800;
+    @apply content-[''] absolute left-[-30px] top-1/2 -translate-y-1/2 w-5 h-0.5 bg-primary;
   }
 
-  /* Button Hover Effects */
+  /* Button Styles */
   .btn-primary {
-    background-color: #ffc800;
-    color: #1e1e1e;
-    font-weight: 600;
-    padding: 12px 32px;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease;
+    @apply bg-primary text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:bg-primary/90 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30;
   }
 
-  .btn-primary:hover {
-    background-color: #e6b400;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 200, 0, 0.3);
-  }
-
-  /* Card Hover Effects */
+  /* Card Hover Effect */
   .card-hover {
-    transition: all 0.3s ease;
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
   }
 
-  .card-hover:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Icon Box Styles */
+  /* Icon Box */
   .icon-box {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #ffc800 0%, #ffde59 100%);
-    margin: 0 auto 1.5rem;
-    transition: all 0.3s ease;
+    @apply w-20 h-20 flex items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent mx-auto mb-6 transition-all duration-300 hover:scale-110 hover:rotate-6;
   }
 
-  .icon-box:hover {
-    transform: scale(1.1) rotate(5deg);
-  }
-
-  /* Hero Carousel Styles */
-  .hero-overlay {
-    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(30, 30, 30, 0.7) 100%);
-  }
-
-  .carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    background-size: cover;
-    background-position: center;
-  }
-
-  .carousel-slide.active {
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .carousel-indicator {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-
-  .carousel-indicator.active {
-    background: #ffc800;
-    width: 32px;
-    border-radius: 6px;
-  }
-
-  .carousel-nav {
-    transition: all 0.3s ease;
-    opacity: 0;
-  }
-
-  .carousel-container:hover .carousel-nav {
-    opacity: 1;
-  }
-
-  .carousel-nav:hover {
-    background: #ffc800;
-    transform: translateY(-50%) scale(1.1);
-  }
-
-  /* Service Card Badge */
+  /* Service Badge */
   .service-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: #ffc800;
-    color: #1e1e1e;
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 6px 12px;
-    border-radius: 20px;
+    @apply absolute top-5 right-5 bg-primary text-white text-xs font-bold px-3 py-1.5 rounded-full;
   }
 
-  /* Counter Animation */
-  @keyframes countUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
+  /* Counter Animation - Fixed */
   .counter {
     animation: countUp 1s ease-out;
   }
+}
 
-  @media (max-width: 768px) {
-    .carousel-nav {
-      width: 40px;
-      height: 40px;
-      opacity: 0.8;
-    }
+@layer utilities {
+  /* Carousel Utilities */
+  .carousel-slide {
+    @apply absolute inset-0 opacity-0 transition-opacity duration-1000 bg-cover bg-center;
+  }
 
-    .carousel-indicator {
-      width: 10px;
-      height: 10px;
-    }
+  .carousel-slide.active {
+    @apply opacity-100 z-10;
+  }
 
-    .carousel-indicator.active {
-      width: 24px;
-    }
+  .carousel-indicator {
+    @apply w-3 h-3 rounded-full bg-white/50 cursor-pointer transition-all duration-300;
+  }
 
-    .icon-box {
-      width: 60px;
-      height: 60px;
-    }
+  .carousel-indicator.active {
+    @apply bg-primary w-8 rounded-md;
+  }
+
+  .carousel-nav {
+    @apply transition-all duration-300 opacity-0 hover:scale-110;
+  }
+
+  .carousel-container:hover .carousel-nav {
+    @apply opacity-100;
+  }
+}
+
+/* Regular CSS for animations (outside @layer) */
+@keyframes countUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

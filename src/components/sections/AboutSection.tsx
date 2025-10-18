@@ -22,7 +22,7 @@ export function AboutSection() {
               />
             </div>
             {/* Stats Badge */}
-            <div className="absolute -bottom-6 -right-6 bg-primary text-dark p-8 rounded-2xl shadow-xl">
+            <div className="absolute -bottom-6 -right-6 bg-primary text-white p-8 rounded-2xl shadow-xl">
               <div className="text-5xl font-black mb-2">15+</div>
               <div className="text-sm font-semibold">Years Experience</div>
             </div>

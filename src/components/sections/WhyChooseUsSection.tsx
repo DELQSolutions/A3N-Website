@@ -31,7 +31,7 @@ const features = [
 
 export function WhyChooseUsSection() {
   return (
-    <section className="py-20 lg:py-28 bg-dark text-white relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-gradient-to-br from-dark via-slate-900 to-dark text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
