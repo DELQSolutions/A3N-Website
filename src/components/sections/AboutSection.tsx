@@ -7,8 +7,12 @@ import { CheckCircle2 } from "lucide-react";
 
 export function AboutSection() {
   return (
-    <section className="py-20 lg:py-28 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-28 bg-white grid-pattern relative overflow-hidden">
+      {/* Add floating elements */}
+      <div className="absolute top-20 right-20 w-32 h-32 bg-primary/10 rounded-full blur-3xl animate-[float_6s_ease-in-out_infinite]" />
+      <div className="absolute bottom-20 left-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite]" />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Image */}
           <div className="relative">

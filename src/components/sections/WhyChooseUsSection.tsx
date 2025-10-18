@@ -1,6 +1,7 @@
 "use client";
 
 import { Trophy, Target, Lightbulb, Shield } from "lucide-react";
+import { AnimatedStats } from "@/components/effects/AnimatedStats";
 
 const features = [
   {
@@ -76,20 +77,8 @@ export function WhyChooseUsSection() {
         </div>
 
         {/* Stats Counter */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 pt-20 border-t border-white/10">
-          {[
-            { number: "230+", label: "Happy Customers" },
-            { number: "789+", label: "Projects Completed" },
-            { number: "890+", label: "Satisfied Clients" },
-            { number: "15+", label: "Awards Won" }
-          ].map((stat, idx) => (
-            <div key={idx} className="text-center counter">
-              <div className="text-4xl md:text-5xl font-black text-primary mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-300 font-medium">{stat.label}</div>
-            </div>
-          ))}
+        <div className="mt-20 pt-20 border-t border-white/10">
+          <AnimatedStats />
         </div>
       </div>
     </section>
