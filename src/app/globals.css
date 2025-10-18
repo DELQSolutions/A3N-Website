@@ -1,31 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  /* Exact colors from HTML */
-  --color-background: oklch(97.5% 0.003 108);
-  --color-foreground: oklch(13% 0.02 60);
-  --color-card: oklch(100% 0 0);
-  --color-card-foreground: oklch(13% 0.02 60);
-  --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: oklch(13% 0.02 60);
-  --color-primary: oklch(80% 0.18 85);
-  --color-primary-foreground: oklch(13% 0.02 60);
-  --color-secondary: oklch(96% 0.005 108);
-  --color-secondary-foreground: oklch(13% 0.02 60);
-  --color-muted: oklch(95% 0.007 108);
-  --color-muted-foreground: oklch(55% 0.014 108);
-  --color-accent: oklch(80% 0.18 85);
-  --color-accent-foreground: oklch(13% 0.02 60);
-  --color-destructive: oklch(60% 0.21 25);
-  --color-destructive-foreground: oklch(98% 0.004 108);
-  --color-border: oklch(93% 0.013 108);
-  --color-input: oklch(93% 0.013 108);
-  --color-ring: oklch(80% 0.18 85);
+  /* Biztrox Color Palette */
+  --color-background: #ffffff;
+  --color-foreground: #1e1e1e;
+  --color-card: #ffffff;
+  --color-card-foreground: #1e1e1e;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1e1e1e;
+  --color-primary: #ffc800;
+  --color-primary-foreground: #1e1e1e;
+  --color-secondary: #f8f9fa;
+  --color-secondary-foreground: #1e1e1e;
+  --color-muted: #f4f4f4;
+  --color-muted-foreground: #6c757d;
+  --color-accent: #ffc800;
+  --color-accent-foreground: #1e1e1e;
+  --color-destructive: #dc3545;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #e9ecef;
+  --color-input: #e9ecef;
+  --color-ring: #ffc800;
+  --color-dark: #1e1e1e;
+  --color-gray: #6c757d;
 
   --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
 }
 
 @layer base {
@@ -34,17 +36,98 @@
   }
   
   body {
-    background-color: #f8f8f5;
-    color: #231f0f;
+    background-color: #ffffff;
+    color: #1e1e1e;
     font-feature-settings: "rlig" 1, "calt" 1;
+    line-height: 1.6;
   }
 
-  /* Smooth scroll */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Carousel styles matching HTML */
+  /* Heading Styles */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  /* Section Styles */
+  section {
+    position: relative;
+  }
+
+  .section-title {
+    position: relative;
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffc800;
+    margin-bottom: 1rem;
+  }
+
+  .section-title::before {
+    content: '';
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 2px;
+    background-color: #ffc800;
+  }
+
+  /* Button Hover Effects */
+  .btn-primary {
+    background-color: #ffc800;
+    color: #1e1e1e;
+    font-weight: 600;
+    padding: 12px 32px;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #e6b400;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(255, 200, 0, 0.3);
+  }
+
+  /* Card Hover Effects */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Icon Box Styles */
+  .icon-box {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffc800 0%, #ffde59 100%);
+    margin: 0 auto 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .icon-box:hover {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  /* Hero Carousel Styles */
+  .hero-overlay {
+    background: linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, rgba(30, 30, 30, 0.7) 100%);
+  }
+
   .carousel-slide {
     position: absolute;
     top: 0;
@@ -72,7 +155,7 @@
   }
 
   .carousel-indicator.active {
-    background: #f9d006;
+    background: #ffc800;
     width: 32px;
     border-radius: 6px;
   }
@@ -87,8 +170,37 @@
   }
 
   .carousel-nav:hover {
-    background: #f9d006;
+    background: #ffc800;
     transform: translateY(-50%) scale(1.1);
+  }
+
+  /* Service Card Badge */
+  .service-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ffc800;
+    color: #1e1e1e;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+  }
+
+  /* Counter Animation */
+  @keyframes countUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .counter {
+    animation: countUp 1s ease-out;
   }
 
   @media (max-width: 768px) {
@@ -105,6 +217,11 @@
 
     .carousel-indicator.active {
       width: 24px;
+    }
+
+    .icon-box {
+      width: 60px;
+      height: 60px;
     }
   }
 }

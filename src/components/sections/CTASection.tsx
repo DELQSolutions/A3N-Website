@@ -5,7 +5,7 @@ import { ArrowRight } from "lucide-react";
 interface CTASectionProps {
   title: string;
   description: string;
-  primaryButton: {
+  primaryButton?: { // Make primaryButton optional
     text: string;
     href: string;
   };
@@ -29,14 +29,16 @@ export function CTASection({
           <p className="text-lg text-muted-foreground mb-8">{description}</p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild>
-              <Link href={primaryButton.href}>
-                {primaryButton.text}
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            {primaryButton && primaryButton.href && (
+              <Button size="lg" asChild>
+                <Link href={primaryButton.href}>
+                  {primaryButton.text}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            )}
             
-            {secondaryButton && (
+            {secondaryButton && secondaryButton.href && (
               <Button size="lg" variant="outline" asChild>
                 <Link href={secondaryButton.href}>{secondaryButton.text}</Link>
               </Button>
