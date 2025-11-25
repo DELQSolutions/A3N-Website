@@ -28,8 +28,8 @@ export function ContactInfoCards() {
     {
       icon: Users,
       title: "Join our team",
-      content: "careers@sumodigitech.com",
-      link: "mailto:careers@sumodigitech.com",
+      content: "careers@a3nitconsulting.com",
+      link: "mailto:careers@a3nitconsulting.com",
       color: "from-green-500 to-emerald-500",
     },
   ];

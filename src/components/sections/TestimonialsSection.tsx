@@ -9,7 +9,7 @@ const testimonials = [
     name: "John Anderson",
     role: "CEO, TechCorp",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80",
-    content: "SuMoDigitech transformed our business operations with their expert SAP consulting. The results exceeded our expectations!"
+    content: "A3N It Consulting transformed our business operations with their expert SAP consulting. The results exceeded our expectations!"
   },
   {
     name: "Sarah Mitchell",

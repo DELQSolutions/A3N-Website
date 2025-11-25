@@ -67,7 +67,7 @@ export function TeamSection() {
                     <Linkedin className="w-5 h-5 text-white" />
                   </a>
                   <a
-                    href={`mailto:${member.name.toLowerCase().replace(" ", ".")}@sumodigitech.com`}
+                    href={`mailto:${member.name.toLowerCase().replace(" ", ".")}@a3nitconsulting.com`}
                     className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors"
                   >
                     <Mail className="w-5 h-5 text-white" />

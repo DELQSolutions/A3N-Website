@@ -215,6 +215,30 @@ export const SERVICES: Service[] = [
       'Change management',
       'Training & support'
     ]
+  },
+  {
+    id: '13',
+    title: "Resource Augmentation",
+    slug: "resource-augmentation",
+    description: "Scale your team with skilled professionals to accelerate project delivery and fill expertise gaps efficiently.",
+    icon: "Users",
+    category: "consulting",
+    features: [
+      "Quick Access to Skilled Talent: Get access to vetted professionals with specialized skills within days, not months.",
+      "Flexible Engagement Models: Choose from hourly, part-time, or full-time engagement based on your project needs.",
+      "Seamless Integration: Our professionals integrate directly into your existing teams and workflows.",
+      "Cost-Effective Scaling: Reduce hiring costs and overhead while maintaining quality and productivity.",
+      "Domain Expertise: Access experts across SAP, IoT, AI/ML, Cloud, and Enterprise Application Development.",
+      "Reduced Time-to-Market: Accelerate project delivery with immediate access to skilled resources.",
+    ],
+    benefits: [
+      "Reduce recruitment time by 70%",
+      "Lower operational costs by up to 40%",
+      "Access to global talent pool",
+      "Flexible scaling up or down",
+      "No long-term commitment required",
+      "Focus on core business activities",
+    ],
   }
 ] as const;
 

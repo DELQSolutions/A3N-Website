@@ -1,10 +1,10 @@
 export const COMPANY = {
-  name: "SuMoDigitech",
+  name: "A3N It Consulting",
   tagline: "Innovate | Implement | Improve",
   description: "Leading provider of comprehensive SAP consulting services, specializing in digital transformation and enterprise solutions.",
   
   contact: {
-    email: "contact@sumodigitech.com",
+    email: "contact@a3nitconsulting.com",
     phone: "+1 (555) 123-4567",
     address: {
       street: "123 Tech Avenue",
@@ -16,33 +16,33 @@ export const COMPANY = {
   },
   
   social: {
-    linkedin: "https://linkedin.com/company/sumodigitech",
-    twitter: "https://twitter.com/sumodigitech",
-    facebook: "https://facebook.com/sumodigitech"
+    linkedin: "https://linkedin.com/company/a3nitconsulting",
+    twitter: "https://twitter.com/a3nitconsulting",
+    facebook: "https://facebook.com/a3nitconsulting"
   },
   
   hours: "Monday - Friday: 9:00 AM - 6:00 PM",
   
   about: {
-    title: "Reinvent your business model with SuMoDigitech",
-    description: "In today's digital age, businesses are automating processes to enhance customer satisfaction, make real-time decisions, reduce costs, and manage risks. SuMoDigitech, a trusted partner, delivers measurable outcomes through industry-specific solutions and cutting-edge technologies like IoT, Robotics, Machine Learning, and SAP Business One. We help modernize processes and swiftly solve challenges, ensuring our clients navigate their digital transformation with confidence and agility.",
+    title: "Reinvent your business model with A3N It Consulting",
+    description: "In today's digital age, businesses are automating processes to enhance customer satisfaction, make real-time decisions, reduce costs, and manage risks. A3N It Consulting, a trusted partner, delivers measurable outcomes through industry-specific solutions and cutting-edge technologies like IoT, Robotics, Machine Learning, and SAP Business One. We help modernize processes and swiftly solve challenges, ensuring our clients navigate their digital transformation with confidence and agility.",
     
     vision: {
       title: "Our Vision",
-      description: "SuMoDigitech's vision is to empower businesses with intelligent, customized digital solutions that drive efficiency and growth. From ERP systems to mobile apps and web design, we deliver solutions precisely aligned with our clients' unique needs, ensuring their long-term success."
+      description: "A3N It Consulting's vision is to empower businesses with intelligent, customized digital solutions that drive efficiency and growth. From ERP systems to mobile apps and web design, we deliver solutions precisely aligned with our clients' unique needs, ensuring their long-term success."
     },
     
     mission: {
       title: "Our Mission",
-      description: "SuMoDigitech empowers businesses with technology-driven solutions tailored to industry needs. Specializing in IoT, Robotics, Machine Learning, and SAP Business One, we streamline operations and enhance decision-making, enabling our clients to thrive in the digital era with confidence and agility."
+      description: "A3N It Consulting empowers businesses with technology-driven solutions tailored to industry needs. Specializing in IoT, Robotics, Machine Learning, and SAP Business One, we streamline operations and enhance decision-making, enabling our clients to thrive in the digital era with confidence and agility."
     },
     
     ceo: {
       name: "Pushpak Jha",
       title: "CEO",
       experience: "25+ years",
-      quote: "After spending more than two decades in SAP Ecosystem, an important aspect I understood that faster adaptability to change and dare to innovate is the key to become a successful enterprise!! That one key requirement, became the seed for the inception of SuMoDigitech",
-      description: "Founded with a vision to provide SMEs with tailored IT solutions, SuMoDigitech is led by a team of industry experts with exceptional technical expertise and experience."
+      quote: "After spending more than two decades in SAP Ecosystem, an important aspect I understood that faster adaptability to change and dare to innovate is the key to become a successful enterprise!! That one key requirement, became the seed for the inception of A3N It Consulting",
+      description: "Founded with a vision to provide SMEs with tailored IT solutions, A3N It Consulting is led by a team of industry experts with exceptional technical expertise and experience."
     }
   },
   
