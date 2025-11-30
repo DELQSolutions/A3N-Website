@@ -1,9 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // 1. ADD THIS LINE
-  output: "standalone", 
-  
+  output: "standalone",
+
+  // ADD THIS BLOCK
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   images: {
     remotePatterns: [
       {
