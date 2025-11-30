@@ -1,0 +1,10 @@
+services:
+  web:
+    container_name: a3n-consulting-web
+    build: .
+    restart: always
+    # Left side is VPS port (3001), Right side is Container port (3000)
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
