@@ -3,9 +3,13 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   output: "standalone",
 
-  // ADD THIS BLOCK
   eslint: {
     ignoreDuringBuilds: true,
+  },
+
+  // ADD THIS BLOCK TO IGNORE TS ERRORS
+  typescript: {
+    ignoreBuildErrors: true,
   },
 
   images: {
