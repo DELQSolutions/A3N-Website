@@ -1,56 +1,108 @@
-name: Deploy to VPS
+name: Deploy A3N Website
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main, master]
+  workflow_dispatch:
 
 jobs:
   deploy:
+    name: Deploy to Production VPS
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/a3n-consulting:latest
-
       - name: Deploy to VPS
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
           script: |
-            # Create project folder if it doesn't exist
-            mkdir -p ~/a3n-project
-            cd ~/a3n-project
-
-            # Create/Overwrite docker-compose.yml on the server
-            echo 'services:
-              web:
-                container_name: a3n-consulting-web
-                image: ${{ secrets.DOCKERHUB_USERNAME }}/a3n-consulting:latest
-                restart: always
-                ports:
-                  - "3001:3000"
-                environment:
-                  - NODE_ENV=production' > docker-compose.yml
-
-            # Pull new image and restart
-            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/a3n-consulting:latest
-            docker compose down
-            docker compose up -d --remove-orphans
-            docker image prune -f
+            set -e
+            
+            PROJECT_DIR="/var/www/a3n.delqsolutions.com"
+            CONTAINER_NAME="a3n-consulting-web"
+            
+            echo "🚀 Deploying A3N Website (will NOT affect other projects)"
+            
+            # Navigate to project directory
+            cd $PROJECT_DIR
+            
+            # Pull latest changes
+            echo "📦 Pulling latest code..."
+            git fetch origin
+            git reset --hard origin/main
+            
+            # Stop ONLY this project's container
+            echo "🛑 Stopping $CONTAINER_NAME..."
+            docker-compose down
+            
+            # Clean up ONLY this project's images (safe)
+            echo "🧹 Cleaning old A3N images..."
+            docker images | grep "a3ndelqsolutionscom" | awk '{print $3}' | xargs -r docker rmi -f || true
+            
+            # Build new image
+            echo "🔨 Building new image..."
+            docker-compose build --no-cache
+            
+            # Start new container
+            echo "▶️  Starting $CONTAINER_NAME..."
+            docker-compose up -d
+            
+            # Wait for startup
+            echo "⏳ Waiting 10 seconds..."
+            sleep 10
+            
+            # Verify all containers are still running
+            echo "✅ Verifying ALL containers:"
+            docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+            
+            # Show this project's logs
+            echo ""
+            echo "📋 A3N Website logs:"
+            docker-compose logs --tail=30
+            
+            echo ""
+            echo "✨ Deployment completed!"
+            
+      - name: Verify Deployment
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            cd /var/www/a3n.delqsolutions.com
+            
+            # Count running containers
+            EXPECTED_CONTAINERS=4
+            RUNNING_CONTAINERS=$(docker ps --format '{{.Names}}' | wc -l)
+            
+            echo "Running containers: $RUNNING_CONTAINERS/$EXPECTED_CONTAINERS"
+            
+            # Check A3N container
+            if docker ps | grep -q "a3n-consulting-web"; then
+              echo "✅ a3n-consulting-web is running"
+            else
+              echo "❌ a3n-consulting-web is NOT running"
+              exit 1
+            fi
+            
+            # Check other containers are still running
+            if docker ps | grep -q "wqtc_frontend"; then
+              echo "✅ wqtc_frontend still running"
+            fi
+            
+            if docker ps | grep -q "wqtc_backend"; then
+              echo "✅ wqtc_backend still running"
+            fi
+            
+            if docker ps | grep -q "wqtc_db"; then
+              echo "✅ wqtc_db still running"
+            fi
+            
+            echo ""
+            echo "🌐 A3N Website: http://$(curl -s ifconfig.me):3001"
+            echo "🌐 WQTC Platform: http://$(curl -s ifconfig.me):3000"
