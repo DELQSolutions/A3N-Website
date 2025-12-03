@@ -4,11 +4,12 @@ import { useState } from "react";
 import { SERVICES } from "@/lib/constants/services";
 import { ServiceCard } from "@/components/sections/ServiceCard";
 
+// Updated categories based on expanded SERVICES list
 const categories = [
   { id: "all", label: "All Services" },
   { id: "sap", label: "SAP Solutions" },
-  { id: "solutions", label: "Custom Solutions" },
-  { id: "consulting", label: "Consulting" },
+  { id: "solutions", label: "AI, RPA & Software Solutions" },
+  { id: "consulting", label: "Consulting & Resource Services" },
 ];
 
 export function ServiceGrid() {

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Target, Eye, Lightbulb, TrendingUp } from "lucide-react";
+import { Target, Eye } from "lucide-react";
 import { COMPANY } from "@/lib/constants/company";
 
 export function MissionVision() {
@@ -46,7 +46,7 @@ export function MissionVision() {
           </div>
         </div>
 
-        {/* Image Section with Stats */}
+        {/* Image Section */}
         <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
@@ -56,27 +56,6 @@ export function MissionVision() {
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/60 to-transparent" />
-          
-          {/* Stats Overlay */}
-          <div className="absolute inset-0 flex items-center">
-            <div className="container mx-auto px-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl">
-                {[
-                  { value: "15+", label: "Years Experience" },
-                  { value: "500+", label: "Projects Delivered" },
-                  { value: "200+", label: "Happy Clients" },
-                  { value: "50+", label: "Team Members" },
-                ].map((stat, index) => (
-                  <div key={index} className="text-white">
-                    <div className="text-3xl md:text-4xl font-black text-primary mb-1">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm md:text-base text-white/80">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

@@ -12,212 +12,371 @@ export interface Service {
 }
 
 export const SERVICES: Service[] = [
+  // --- SAP Solutions ---
   {
-    id: '1',
-    title: 'SAP S/4HANA',
-    slug: 'sap-s4hana',
-    description: 'Next-generation ERP suite designed for digital business, providing real-time insights and intelligent automation.',
-    icon: 'Building',
-    category: 'sap',
+    id: "1",
+    title: "SAP S/4HANA",
+    slug: "sap-s4hana",
+    description: "Next-generation ERP suite designed for digital business, providing real-time insights and intelligent automation.",
+    icon: "Building",
+    category: "sap",
     features: [
-      'Real-time analytics and reporting',
-      'Simplified data model',
-      'Cloud-ready architecture',
-      'Advanced business processes',
-      'Intelligent technologies integration'
+      "Real-time analytics and reporting",
+      "Simplified data model",
+      "Cloud-ready architecture",
+      "Advanced business processes",
+      "Intelligent technologies integration"
     ],
     benefits: [
-      'Reduced IT costs',
-      'Improved business agility',
-      'Enhanced user experience',
-      'Real-time decision making'
-    ]
+      "Reduced IT costs",
+      "Improved business agility",
+      "Enhanced user experience",
+      "Real-time decision making"
+    ],
   },
   {
-    id: '2',
-    title: 'SAP Ariba',
-    slug: 'sap-ariba',
-    description: 'SAP Ariba is the world\'s leading cloud-based procurement solution, transforming how businesses manage their procurement processes. It offers a comprehensive platform that connects buyers and suppliers, enabling efficient and transparent transactions. By leveraging SAP Ariba, organizations can streamline their procurement operations, reduce costs, and improve supplier relationships.',
-    icon: 'Cart',
-    category: 'sap',
+    id: "2",
+    title: "SAP SuccessFactors",
+    slug: "sap-successfactors",
+    description: "SAP SuccessFactors offers a full suite of HCM (Human Capital Management) solutions to optimize and manage your workforce.",
+    icon: "Users",
+    category: "sap",
     features: [
-      'Comprehensive Procurement Management: Manage the entire procurement lifecycle, from sourcing and orders to invoices and payments, all on one integrated platform',
-      'Global Supplier Network: Connect with millions of suppliers worldwide, simplifying discovery, qualification, and collaboration',
-      'Enhanced Collaboration: Improve communication and foster stronger relationships with suppliers through shared documents and real-time insights',
-      'Spend Visibility: Gain clear, actionable insights into your organization\'s spending to identify savings opportunities and ensure compliance',
-      'Scalability: Whether you\'re a small business or a large enterprise, SAP Ariba scales to meet your evolving procurement needs'
+      "End-to-end talent management",
+      "Employee experience and engagement",
+      "Global HR, payroll, and compliance",
+      "Real-time people analytics",
+      "Integration with SAP & third-party systems",
     ],
     benefits: [
-      'Reduced procurement costs',
-      'Improved supplier relationships',
-      'Enhanced spend visibility',
-      'Streamlined procurement processes'
-    ]
+      "Improved employee retention",
+      "Enhanced workforce productivity",
+      "Streamlined HR processes",
+      "Better talent acquisition"
+    ],
   },
   {
-    id: '3',
-    title: 'SAP SuccessFactors',
-    slug: 'sap-successfactors',
-    description: 'SAP SuccessFactors offers a comprehensive suite of human capital management (HCM) solutions designed to optimize your workforce and drive business success. From talent acquisition to performance management, learning, and development, SuccessFactors provides the tools you need to attract, engage, and retain top talent.',
-    icon: 'Users',
-    category: 'sap',
+    id: "3",
+    title: "SAP ARIBA",
+    slug: "sap-ariba",
+    description:
+      "Cloud-based procurement solution for streamlined buying, supplier collaboration, and transparent transactions.",
+    icon: "Cart",
+    category: "sap",
     features: [
-      'Talent Management: Streamline your talent acquisition, onboarding, and performance management processes to identify and nurture high-potential employees',
-      'Employee Experience: Enhance employee engagement and satisfaction with personalized experiences, continuous feedback, and career development opportunities',
-      'Data-Driven Decisions: Leverage real-time analytics and insights to make informed decisions about your workforce, optimize resource allocation, and improve overall performance',
-      'Global Compliance: Ensure compliance with global and local regulations, manage workforce data securely, and mitigate risks',
-      'Seamless Integration: Integrate SuccessFactors with your existing IT landscape, including ERP systems, to create a unified and efficient HR ecosystem'
+      "End-to-end procurement management",
+      "Supplier network & collaboration",
+      "Spend management and reporting",
+      "Contract lifecycle management",
+      "Invoice and payment automation"
     ],
     benefits: [
-      'Improved employee retention',
-      'Enhanced workforce productivity',
-      'Better talent acquisition',
-      'Streamlined HR processes'
+      "Reduced procurement costs",
+      "Improved supplier relationships",
+      "Enhanced spend visibility",
+      "Streamlined procurement processes"
     ]
   },
   {
-    id: '4',
-    title: 'SAP Concur',
-    slug: 'sap-concur',
-    description: 'Integrated travel, expense, and invoice management solution for complete spend visibility.',
-    icon: 'Airplane',
-    category: 'sap',
+    id: "4",
+    title: "SAP Fieldglass",
+    slug: "sap-fieldglass",
+    description:
+      "Vendor management system for external workforce and services procurement.",
+    icon: "Clipboard",
+    category: "sap",
     features: [
-      'Travel booking & management',
-      'Expense reporting',
-      'Invoice management',
-      'Compliance & audit',
-      'Mobile accessibility'
+      "External workforce management",
+      "Services procurement",
+      "Contingent workforce analytics",
+      "Compliance management",
+      "Supplier collaboration"
+    ],
+  },
+  {
+    id: "5",
+    title: "SAP Concur",
+    slug: "sap-concur",
+    description:
+      "Integrated travel, expense, and invoice management solution for spend visibility and compliance.",
+    icon: "Airplane",
+    category: "sap",
+    features: [
+      "Travel management & booking",
+      "Expense reporting",
+      "Invoice management",
+      "Audit & compliance tracking",
+      "Mobile accessibility"
     ]
   },
   {
-    id: '5',
-    title: 'SAP Fieldglass',
-    slug: 'sap-fieldglass',
-    description: 'Vendor management system for managing external workforce and services procurement.',
-    icon: 'Clipboard',
-    category: 'sap',
+    id: "6",
+    title: "Custom ERP Solutions",
+    slug: "custom-erp",
+    description: "Custom SAP ERP implementations and extensions tailored for your unique business processes.",
+    icon: "Cog",
+    category: "sap",
     features: [
-      'External workforce management',
-      'Services procurement',
-      'Contingent workforce analytics',
-      'Compliance management',
-      'Supplier collaboration'
-    ]
-  },
-  {
-    id: '6',
-    title: 'Custom ERP Solutions',
-    slug: 'custom-erp',
-    description: 'Every business is unique, and your ERP solution should be too. SAP Custom ERP empowers organizations to tailor their Enterprise Resource Planning system to meet specific business needs, driving efficiency, agility, and growth.',
-    icon: 'Cog',
-    category: 'sap',
-    features: [
-      'Personalized Solutions: Tailor your ERP to align perfectly with your business processes, industry requirements, and strategic goals',
-      'Scalable and Flexible: Adapt and scale your ERP solution as your business grows, ensuring it continues to meet your evolving needs',
-      'Seamless Integration: Connect with existing systems and third-party applications effortlessly, creating a unified ecosystem',
-      'Future-Ready: Leverage SAP\'s robust platform to stay ahead with the latest innovations in AI, machine learning, IoT, and more',
-      'Enhanced Decision-Making: Gain deeper insights with customized reporting and analytics'
+      "Custom workflow development",
+      "Integration with third-party software",
+      "Personalized analytics dashboards",
+      "Legacy system migration",
+      "Industry-specific modules"
     ],
     benefits: [
-      'Reduced IT costs',
-      'Improved business agility',
-      'Enhanced user experience',
-      'Real-time decision making'
+      "Reduced IT costs",
+      "Improved business agility",
+      "Enhanced user experience",
+      "Real-time decision making"
     ]
   },
   {
-    id: '7',
-    title: 'SAP BTP Integration',
-    slug: 'integrations',
-    description: 'SAP Business Technology Platform integration services for seamless system connectivity.',
-    icon: 'Link',
-    category: 'sap',
+    id: "7",
+    title: "BTP Application Development",
+    slug: "btp-application",
+    description: "Application development and extension using SAP Business Technology Platform (BTP).",
+    icon: "AppWindow",
+    category: "sap",
     features: [
-      'API management',
-      'Integration flows',
-      'Cloud platform services',
-      'Extension development',
-      'Data migration'
+      "Custom Fiori app development",
+      "Business process automation",
+      "Integration with SAP & non-SAP systems",
+      "Data management",
+      "Cloud & hybrid deployments"
     ]
   },
   {
-    id: '8',
-    title: 'Automation Services',
-    slug: 'automation',
-    description: 'Intelligent automation solutions to streamline business processes and increase efficiency.',
-    icon: 'Lightning',
-    category: 'solutions',
+    id: "8",
+    title: "Integrations",
+    slug: "sap-integrations",
+    description: "SAP system integrations (On-premise & Cloud) for unified, automated business processes.",
+    icon: "Link2",
+    category: "sap",
     features: [
-      'Robotic Process Automation (RPA)',
-      'Workflow automation',
-      'Business process management',
-      'AI-powered automation',
-      'Integration automation'
+      "API management & middleware",
+      "Real-time data synchronization",
+      "Integration with legacy applications",
+      "Workflow and automation",
+      "Security-focused integrations"
     ]
   },
   {
-    id: '9',
-    title: 'Data Analytics',
-    slug: 'data-analytics',
-    description: 'Advanced analytics and business intelligence solutions for data-driven decision making.',
-    icon: 'Chart',
-    category: 'solutions',
+    id: "9",
+    title: "HR Process Automations",
+    slug: "hr-automations",
+    description: "Automation of HR processes using SAP and complementary platforms.",
+    icon: "UserCog",
+    category: "sap",
     features: [
-      'Business intelligence dashboards',
-      'Predictive analytics',
-      'Data warehousing',
-      'Real-time reporting',
-      'Data visualization'
+      "Onboarding & offboarding automation",
+      "Payroll & leave automation",
+      "Employee records management",
+      "HR analytics dashboards",
+      "Document generation workflows"
     ]
   },
   {
-    id: '10',
-    title: 'Artificial Intelligence',
-    slug: 'ai',
-    description: 'AI and machine learning solutions to enhance business operations and customer experiences.',
-    icon: 'Brain',
-    category: 'solutions',
+    id: "10",
+    title: "Analytics and Reporting",
+    slug: "sap-analytics",
+    description: "SAP analytics solutions for actionable business intelligence and reporting.",
+    icon: "BarChart2",
+    category: "sap",
     features: [
-      'Machine learning models',
-      'Natural language processing',
-      'Computer vision',
-      'Predictive maintenance',
-      'Intelligent automation'
+      "Real-time business dashboards",
+      "Ad-hoc and scheduled reporting",
+      "Analytics Cloud implementation",
+      "Self-service data visualization",
+      "Integration with SAP S/4HANA data"
     ]
   },
   {
-    id: '11',
-    title: 'Application Development',
-    slug: 'app-development',
-    description: 'Custom enterprise application development services tailored to your business needs.',
-    icon: 'Code',
-    category: 'solutions',
+    id: "11",
+    title: "AI Product Development Services",
+    slug: "ai-product-dev",
+    description: "Building AI-powered products and features on SAP and BTP.",
+    icon: "Brain",
+    category: "sap",
     features: [
-      'Web application development',
-      'Mobile app development',
-      'Cloud-native applications',
-      'API development',
-      'Legacy modernization'
+      "Custom AI solution development",
+      "ML model deployment on BTP",
+      "Predictive analytics integration",
+      "Data engineering for AI",
+      "IoT & AI hybrid use-cases"
     ]
   },
   {
-    id: '12',
-    title: 'SAP Consulting Services',
-    slug: 'consulting',
-    description: 'Expert SAP consulting to guide your digital transformation journey from strategy to implementation.',
-    icon: 'Briefcase',
-    category: 'consulting',
+    id: "12",
+    title: "Corporate Training Solutions",
+    slug: "corporate-training",
+    description: "SAP-focused training for end-users and IT teams: adoption, best practices, and certifications.",
+    icon: "GraduationCap",
+    category: "sap",
     features: [
-      'SAP strategy & roadmap',
-      'Implementation services',
-      'System optimization',
-      'Change management',
-      'Training & support'
+      "Remote and on-site training",
+      "Custom learning materials and labs",
+      "Workshops for SAP modules",
+      "User adoption programs",
+      "Certification exam prep"
+    ]
+  },
+  // --- AI Solutions ---
+  {
+    id: "13",
+    title: "Generative AI",
+    slug: "generative-ai",
+    description: "Solutions powered by generative AI for content creation, automation, and new business models.",
+    icon: "Sparkles",
+    category: "solutions",
+    features: [
+      "Document and content generation",
+      "Text summarization and Q/A bots",
+      "AI workflow automation",
+      "Integration with SAP and legacy systems",
+      "Prompt engineering"
     ]
   },
   {
-    id: '13',
+    id: "14",
+    title: "Agentic AI",
+    slug: "agentic-ai",
+    description: "Intelligent AI agents for business automation and process optimization.",
+    icon: "Bot",
+    category: "solutions",
+    features: [
+      "End-to-end task automation",
+      "Conversational business agents",
+      "Custom agent design",
+      "Interoperability with APIs and ERPs",
+      "Secure deployment and monitoring"
+    ]
+  },
+  // --- RPA Services ---
+  {
+    id: "15",
+    title: "Automation Consulting",
+    slug: "automation-consulting",
+    description: "Strategy and roadmap consulting for automation and digital transformation initiatives.",
+    icon: "CheckSquare",
+    category: "solutions",
+    features: [
+      "Process discovery and mapping",
+      "ROI analysis and prioritization",
+      "Vendor/tool selection",
+      "Governance frameworks",
+      "Change management advisory"
+    ]
+  },
+  {
+    id: "16",
+    title: "BoT Development and Implementation",
+    slug: "bot-development",
+    description: "Design and deployment of intelligent bots and RPA solutions.",
+    icon: "Zap",
+    category: "solutions",
+    features: [
+      "Custom bot development",
+      "Integration with enterprise apps",
+      "Orchestration and monitoring",
+      "Low-code/no-code solutions",
+      "Continuous improvement"
+    ]
+  },
+  {
+    id: "17",
+    title: "RPA Training and Support",
+    slug: "rpa-training",
+    description: "Training programs and support for RPA adoption and scaling.",
+    icon: "BookOpen",
+    category: "solutions",
+    features: [
+      "RPA tools training (UiPath, Automation Anywhere, etc.)",
+      "Hands-on labs & use-case implementation",
+      "Train-the-trainer programs",
+      "Ongoing user support",
+      "Automation Center of Excellence setup"
+    ]
+  },
+  // --- Software Services ---
+  {
+    id: "18",
+    title: "Hire Dedicated Resource",
+    slug: "dedicated-resource",
+    description: "Flexible hiring of dedicated software engineers for long- or short-term commitments.",
+    icon: "UserPlus",
+    category: "consulting",
+    features: [
+      "Vetted developer allocation",
+      "Focus on SAP, web/mobile, and cloud tech",
+      "Scalable contracts",
+      "Domain expertise matching",
+      "Integrated with client teams"
+    ]
+  },
+  {
+    id: "19",
+    title: "Offshore Development Centre",
+    slug: "offshore-development",
+    description: "Setup and management of offshore development centers for cost-effective IT delivery.",
+    icon: "Globe",
+    category: "consulting",
+    features: [
+      "End-to-end ODC setup",
+      "Recruitment and HR management",
+      "Dedicated infrastructure",
+      "IP protection and compliance",
+      "Project-based or FTE engagement"
+    ]
+  },
+  {
+    id: "20",
+    title: "E-Commerce Development",
+    slug: "ecommerce-development",
+    description: "Custom e-commerce platforms and integrations for B2B and B2C businesses.",
+    icon: "ShoppingBag",
+    category: "solutions",
+    features: [
+      "Headless and traditional e-commerce",
+      "Payment gateway integration",
+      "ERP & CRM connectivity",
+      "Mobile app development",
+      "Marketplace solutions"
+    ]
+  },
+  {
+    id: "21",
+    title: "Mobile App Development",
+    slug: "mobile-app-development",
+    description: "Design and development of cross-platform and native mobile apps.",
+    icon: "Smartphone",
+    category: "solutions",
+    features: [
+      "iOS, Android, & hybrid apps",
+      "Enterprise mobility strategy",
+      "App store deployment",
+      "Integration with SAP & backend APIs",
+      "User experience (UX/UI) design"
+    ]
+  },
+  // --- Other Services by Previous List ---
+  {
+    id: "22",
+    title: "SAP Consulting and Services",
+    slug: "sap-consulting",
+    description: "Comprehensive SAP consulting and support across implementation, optimization, and enhancement tracks.",
+    icon: "Briefcase",
+    category: "consulting",
+    features: [
+      "SAP strategy & roadmap",
+      "Implementation services",
+      "System optimization",
+      "Change management",
+      "Training & support"
+    ]
+  },
+  // ---- Resource Augmentation (kept from original) ----
+  {
+    id: "23",
     title: "Resource Augmentation",
     slug: "resource-augmentation",
     description: "Scale your team with skilled professionals to accelerate project delivery and fill expertise gaps efficiently.",

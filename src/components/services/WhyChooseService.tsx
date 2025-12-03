@@ -10,7 +10,7 @@ import {
 
 const questions = [
   {
-    question: "What makes NVZEN different?",
+    question: "What makes A3N different?",
     answer:
       "We blend over 15 years of experience with the latest development tools to deliver innovative, market-ready solutions tailored to your business.",
   },
@@ -49,7 +49,7 @@ export function WhyChooseService() {
               Our Promise
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mt-3 mb-8">
-              Why <span className="text-primary">NVZEN?</span>
+              Why <span className="text-primary">A3N?</span>
             </h2>
 
             <Accordion type="single" collapsible defaultValue="item-0">

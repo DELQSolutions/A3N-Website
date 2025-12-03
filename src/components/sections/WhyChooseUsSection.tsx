@@ -77,9 +77,9 @@ export function WhyChooseUsSection() {
         </div>
 
         {/* Stats Counter */}
-        <div className="mt-20 pt-20 border-t border-white/10">
+        {/* <div className="mt-20 pt-20 border-t border-white/10">
           <AnimatedStats />
-        </div>
+        </div> */}
       </div>
     </section>
   );

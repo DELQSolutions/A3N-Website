@@ -17,44 +17,67 @@ export const NAVIGATION: NavItem[] = [
     label: 'Services',
     href: '/services',
     children: [
-      // SAP Solutions Group
-      { 
-        label: 'SAP Solutions',
-        href: '/services#sap',
+      {
+        label: 'AI Solutions',
+        href: '/services/ai-solutions',
         children: [
-          { label: 'SAP S/4HANA', href: '/services/sap-s4hana' },
-          { label: 'SAP Ariba', href: '/services/sap-ariba' },
-          { label: 'SAP SuccessFactors', href: '/services/sap-successfactors' },
-          { label: 'SAP Concur', href: '/services/sap-concur' },
-          { label: 'SAP Fieldglass', href: '/services/sap-fieldglass' }
+          { label: 'Generative AI', href: '/services/generative-ai' },
+          { label: 'Agentic AI', href: '/services/agentic-ai' }
         ]
       },
-      // IT Solutions Group
-      { 
-        label: 'IT Solutions',
-        href: '/services#it',
+      {
+        label: 'RPA',
+        href: '/services/rpa',
         children: [
-          { label: 'Custom ERP Development', href: '/services/custom-erp' },
-          { label: 'AI & Machine Learning', href: '/services/ai' },
-          { label: 'Application Development', href: '/services/app-development' },
-          { label: 'System Integration', href: '/services/integrations' },
-          { label: 'Process Automation', href: '/services/automation' },
-          { label: 'Data Analytics', href: '/services/data-analytics' }
+          { label: 'Automation Consulting', href: '/services/automation-consulting' },
+          { label: 'BoT Development and Implementation', href: '/services/bot-development' },
+          { label: 'Training and Support', href: '/services/rpa-training' }
+        ]
+      },
+      {
+        label: 'Software Service',
+        href: '/services/software-service',
+        children: [
+          { label: 'Hire Dedicated Resource', href: '/services/dedicated-resource' },
+          { label: 'Offshore Development Centre', href: '/services/offshore-development' },
+          { label: 'E-Commerce Development', href: '/services/ecommerce-development' },
+          { label: 'Mobile App Development', href: '/services/mobile-app-development' }
+        ]
+      },
+      {
+        label: 'SAP Solutions',
+        href: '/services/sap-solutions',
+        children: [
+          {
+            label: 'SAP Implementation',
+            href: '/services/sap-implementation',
+            children: [
+              { label: 'SAP S4/HANA', href: '/services/sap-s4hana' },
+              { label: 'SAP SuccessFactors', href: '/services/sap-successfactors' },
+              { label: 'SAP ARIBA', href: '/services/sap-ariba' },
+              { label: 'SAP Fieldglass', href: '/services/sap-fieldglass' },
+              { label: 'SAP Concur', href: '/services/sap-concur' }
+            ]
+          },
+          {
+            label: 'SAP Consulting and Services',
+            href: '/services/sap-consulting',
+            children: [
+              { label: 'BTP Application Development', href: '/services/btp-application' },
+              { label: 'Integrations', href: '/services/sap-integrations' },
+              { label: 'HR Process Automations', href: '/services/hr-automations' },
+              { label: 'Analytics and Reporting', href: '/services/sap-analytics' },
+              { label: 'AI Product Development Services', href: '/services/ai-product-dev' },
+              { label: 'Corporate Training Solutions', href: '/services/corporate-training' }
+            ]
+          }
         ]
       }
     ]
   },
   {
     label: 'Solutions',
-    href: '/solutions',
-    children: [
-      { label: 'Manufacturing Solutions', href: '/solutions/manufacturing-solutions' },
-      { label: 'Healthcare Solutions', href: '/solutions/healthcare-solutions' },
-      { label: 'Retail Solutions', href: '/solutions/retail-solutions' },
-      { label: 'Financial Services', href: '/solutions/financial-services-solutions' },
-      { label: 'Supply Chain Solutions', href: '/solutions/supply-chain-solutions' },
-      { label: 'HR & Workforce Solutions', href: '/solutions/hr-workforce-solutions' }
-    ]
+    href: '/solutions'
   },
   {
     label: 'Portfolio',

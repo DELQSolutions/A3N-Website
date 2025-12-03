@@ -1,31 +1,26 @@
 "use client";
 
-import Image from "next/image";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, User2 } from "lucide-react";
 
 const teamMembers = [
   {
     name: "Pushpak Jha",
     role: "CEO & Founder",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80",
     linkedin: "#",
   },
   {
     name: "Sarah Mitchell",
     role: "CTO",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80",
     linkedin: "#",
   },
   {
     name: "Michael Chen",
     role: "Head of Engineering",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
     linkedin: "#",
   },
   {
     name: "Emily Rodriguez",
     role: "SAP Practice Lead",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80",
     linkedin: "#",
   },
 ];
@@ -45,40 +40,37 @@ export function TeamSection() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group relative bg-card rounded-2xl overflow-hidden border border-border hover:border-primary/50 transition-all hover:shadow-2xl"
+              className="group relative bg-card rounded-2xl border border-border hover:border-primary/50 transition-all hover:shadow-2xl p-8 flex flex-col items-center"
             >
-              {/* Image */}
-              <div className="relative h-80 overflow-hidden">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                {/* Social Links - Show on Hover */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                  <a
-                    href={member.linkedin}
-                    className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors"
-                  >
-                    <Linkedin className="w-5 h-5 text-white" />
-                  </a>
-                  <a
-                    href={`mailto:${member.name.toLowerCase().replace(" ", ".")}@a3nitconsulting.com`}
-                    className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors"
-                  >
-                    <Mail className="w-5 h-5 text-white" />
-                  </a>
+              {/* Icon Avatar */}
+              <div className="mb-6">
+                <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center shadow-inner border-2 border-primary/10 group-hover:scale-105 transition-all">
+                  <User2 className="w-10 h-10 text-primary" />
                 </div>
               </div>
 
               {/* Info */}
-              <div className="p-6 text-center">
+              <div className="text-center mb-6">
                 <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                 <p className="text-primary font-medium">{member.role}</p>
+              </div>
+
+              {/* Social Links */}
+              <div className="flex justify-center gap-3 mt-auto">
+                <a
+                  href={member.linkedin}
+                  className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors"
+                  aria-label={`LinkedIn profile of ${member.name}`}
+                >
+                  <Linkedin className="w-5 h-5 text-white" />
+                </a>
+                <a
+                  href={`mailto:${member.name.toLowerCase().replace(/ /g, ".")}@a3nitconsulting.com`}
+                  className="w-10 h-10 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors"
+                  aria-label={`Email ${member.name}`}
+                >
+                  <Mail className="w-5 h-5 text-white" />
+                </a>
               </div>
             </div>
           ))}

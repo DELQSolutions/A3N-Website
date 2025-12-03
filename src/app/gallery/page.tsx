@@ -22,7 +22,7 @@ export default function GalleryPage() {
   return (
     <div className="flex flex-col">
       <GalleryHero />
-      <GalleryStats />
+      {/* <GalleryStats /> */}
       <GalleryGrid />
       <TestimonialsSection />
       <CTASection
