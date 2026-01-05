@@ -16,7 +16,7 @@ export default function Home() {
       <WhyChooseUsSection />
       <WorkProcessSection />
       <TestimonialsSection />
-      <CTASection />
+      <CTASection title={""} description={""} />
       <NewsletterSection />
     </div>
   );
