@@ -52,7 +52,7 @@ export function Header() {
                   {item.label}
                 </Link>
 
-                {/* Dropdown for items with children */}
+                {/* Level 1 Dropdown for items with children */}
                 {item.children && (
                   <div className="absolute left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 bg-card border rounded-lg shadow-lg py-2 z-50">
                     {item.children.map((child) => (
@@ -65,17 +65,34 @@ export function Header() {
                           {child.children && <span className="text-xs ml-2">›</span>}
                         </Link>
 
-                        {/* Nested submenu for third level */}
+                        {/* Level 2 Submenu */}
                         {child.children && (
                           <div className="absolute left-full top-0 ml-0 w-64 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 bg-card border rounded-lg shadow-lg py-2 z-50">
                             {child.children.map((grandchild) => (
-                              <Link
-                                key={grandchild.href}
-                                href={grandchild.href}
-                                className="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary transition-colors"
-                              >
-                                {grandchild.label}
-                              </Link>
+                              <div key={grandchild.href} className="relative group/submenu2">
+                                <Link
+                                  href={grandchild.href}
+                                  className="flex items-center justify-between px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary transition-colors"
+                                >
+                                  <span>{grandchild.label}</span>
+                                  {grandchild.children && <span className="text-xs ml-2">›</span>}
+                                </Link>
+
+                                {/* Level 3 Submenu (for SAP Implementation / SAP Consulting children) */}
+                                {grandchild.children && (
+                                  <div className="absolute left-full top-0 ml-0 w-64 opacity-0 invisible group-hover/submenu2:opacity-100 group-hover/submenu2:visible transition-all duration-200 bg-card border rounded-lg shadow-lg py-2 z-50">
+                                    {grandchild.children.map((greatgrandchild) => (
+                                      <Link
+                                        key={greatgrandchild.href}
+                                        href={greatgrandchild.href}
+                                        className="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary transition-colors"
+                                      >
+                                        {greatgrandchild.label}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
                             ))}
                           </div>
                         )}
@@ -129,9 +146,8 @@ export function Header() {
                           className="p-1 hover:text-primary transition-colors"
                         >
                           <ChevronDown
-                            className={`h-4 w-4 transition-transform ${
-                              isExpanded ? "rotate-180" : ""
-                            }`}
+                            className={`h-4 w-4 transition-transform ${isExpanded ? "rotate-180" : ""
+                              }`}
                           />
                         </button>
                       )}
@@ -158,9 +174,8 @@ export function Header() {
                                     className="p-1 hover:text-primary transition-colors"
                                   >
                                     <ChevronDown
-                                      className={`h-3 w-3 transition-transform ${
-                                        childExpanded ? "rotate-180" : ""
-                                      }`}
+                                      className={`h-3 w-3 transition-transform ${childExpanded ? "rotate-180" : ""
+                                        }`}
                                     />
                                   </button>
                                 )}
@@ -168,16 +183,48 @@ export function Header() {
 
                               {child.children && childExpanded && (
                                 <div className="ml-4 mt-2 space-y-2">
-                                  {child.children.map((grandchild) => (
-                                    <Link
-                                      key={grandchild.href}
-                                      href={grandchild.href}
-                                      className="block text-xs text-muted-foreground/80 hover:text-primary transition-colors"
-                                      onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                      {grandchild.label}
-                                    </Link>
-                                  ))}
+                                  {child.children.map((grandchild) => {
+                                    const grandchildKey = `${childKey}-${grandchild.href}`;
+                                    const grandchildExpanded = expandedMenus.has(grandchildKey);
+                                    return (
+                                      <div key={grandchild.href}>
+                                        <div className="flex items-center justify-between">
+                                          <Link
+                                            href={grandchild.href}
+                                            className="block text-xs text-muted-foreground/80 hover:text-primary transition-colors flex-1"
+                                            onClick={() => setMobileMenuOpen(false)}
+                                          >
+                                            {grandchild.label}
+                                          </Link>
+                                          {grandchild.children && (
+                                            <button
+                                              onClick={() => toggleMenu(grandchildKey)}
+                                              className="p-1 hover:text-primary transition-colors"
+                                            >
+                                              <ChevronDown
+                                                className={`h-3 w-3 transition-transform ${grandchildExpanded ? "rotate-180" : ""}`}
+                                              />
+                                            </button>
+                                          )}
+                                        </div>
+
+                                        {grandchild.children && grandchildExpanded && (
+                                          <div className="ml-4 mt-2 space-y-2">
+                                            {grandchild.children.map((greatgrandchild) => (
+                                              <Link
+                                                key={greatgrandchild.href}
+                                                href={greatgrandchild.href}
+                                                className="block text-xs text-muted-foreground/60 hover:text-primary transition-colors"
+                                                onClick={() => setMobileMenuOpen(false)}
+                                              >
+                                                • {greatgrandchild.label}
+                                              </Link>
+                                            ))}
+                                          </div>
+                                        )}
+                                      </div>
+                                    );
+                                  })}
                                 </div>
                               )}
                             </div>

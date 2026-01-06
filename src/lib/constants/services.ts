@@ -12,7 +12,261 @@ export interface Service {
 }
 
 export const SERVICES: Service[] = [
-  // --- SAP Solutions ---
+  // --- SAP Business One Solutions ---
+  {
+    id: "sap-b1-1",
+    title: "SAP Business One",
+    slug: "sap-business-one",
+    description: "Comprehensive ERP solution designed specifically for small and medium-sized businesses, offering integrated financial, sales, customer, and operations management.",
+    icon: "Building",
+    category: "sap",
+    features: [
+      "Financial management and accounting",
+      "Sales and customer management",
+      "Purchasing and inventory control",
+      "Production and MRP",
+      "Business intelligence and reporting",
+      "Multi-currency and multi-language support"
+    ],
+    benefits: [
+      "Streamlined business operations",
+      "Real-time insights for better decisions",
+      "Improved customer relationships",
+      "Reduced operational costs",
+      "Scalable with business growth"
+    ]
+  },
+  {
+    id: "sap-b1-2",
+    title: "SAP B1 Express Edition",
+    slug: "sap-b1-express-edition",
+    description: "Simplified and cost-effective version of SAP Business One, perfect for startups and small businesses looking to get started with ERP quickly.",
+    icon: "Zap",
+    category: "sap",
+    features: [
+      "Pre-configured industry templates",
+      "Rapid deployment in weeks",
+      "Essential ERP functionalities",
+      "Lower total cost of ownership",
+      "Simplified user interface",
+      "Quick onboarding and training"
+    ],
+    benefits: [
+      "Fast time-to-value",
+      "Reduced implementation costs",
+      "Easy to learn and use",
+      "Scalable to full SAP Business One",
+      "Minimal IT infrastructure required"
+    ]
+  },
+  {
+    id: "sap-b1-3",
+    title: "SAP Business One Cloud",
+    slug: "sap-business-one-cloud",
+    description: "Cloud-native deployment of SAP Business One offering flexibility, scalability, and reduced infrastructure costs with full ERP capabilities.",
+    icon: "Cloud",
+    category: "sap",
+    features: [
+      "Fully managed cloud infrastructure",
+      "Automatic updates and patches",
+      "Subscription-based pricing",
+      "Anytime, anywhere access",
+      "Built-in disaster recovery",
+      "Seamless integrations"
+    ],
+    benefits: [
+      "No upfront hardware investment",
+      "Predictable monthly costs",
+      "Always up-to-date software",
+      "Enhanced security and compliance",
+      "Global accessibility"
+    ]
+  },
+  {
+    id: "sap-b1-4",
+    title: "SAP Business One Cloud Hosting",
+    slug: "sap-business-one-cloud-hosting",
+    description: "Enterprise-grade hosting services for SAP Business One, providing reliable, secure, and high-performance infrastructure managed by experts.",
+    icon: "Server",
+    category: "sap",
+    features: [
+      "Dedicated or shared hosting options",
+      "99.9% uptime SLA guarantee",
+      "24/7 monitoring and support",
+      "Automated backups and recovery",
+      "SSL encryption and security",
+      "Flexible scaling options"
+    ],
+    benefits: [
+      "Reduced IT burden",
+      "Enterprise-grade security",
+      "High availability and reliability",
+      "Cost predictability",
+      "Expert infrastructure management"
+    ]
+  },
+  {
+    id: "sap-b1-5",
+    title: "SAP Business One HANA",
+    slug: "sap-business-one-hana",
+    description: "SAP Business One powered by the SAP HANA in-memory database, delivering lightning-fast analytics, real-time reporting, and advanced data processing.",
+    icon: "Activity",
+    category: "sap",
+    features: [
+      "In-memory computing technology",
+      "Real-time analytics and reporting",
+      "Advanced search capabilities",
+      "Predictive analytics",
+      "Crystal Reports integration",
+      "SAP Lumira dashboards"
+    ],
+    benefits: [
+      "10x faster data processing",
+      "Instant business insights",
+      "Better decision-making",
+      "Future-proof technology",
+      "Enhanced operational efficiency"
+    ]
+  },
+  {
+    id: "sap-b1-6",
+    title: "SAP S/4 HANA Cloud",
+    slug: "sap-s4-hana-cloud",
+    description: "Next-generation intelligent ERP suite delivered as a cloud service, featuring AI-driven automation, real-time analytics, and industry best practices.",
+    icon: "CloudCog",
+    category: "sap",
+    features: [
+      "Intelligent automation with AI/ML",
+      "Embedded analytics and reporting",
+      "Industry-specific processes",
+      "Quarterly innovation updates",
+      "Native cloud architecture",
+      "Extensibility with SAP BTP"
+    ],
+    benefits: [
+      "Continuous innovation",
+      "Lower TCO vs on-premise",
+      "Faster time to value",
+      "Built-in best practices",
+      "Global scalability"
+    ]
+  },
+  {
+    id: "sap-b1-7",
+    title: "SAP Business One Mobility Solutions",
+    slug: "sap-business-one-mobility",
+    description: "Mobile applications and solutions that extend SAP Business One to smartphones and tablets, enabling business operations on the go.",
+    icon: "Smartphone",
+    category: "sap",
+    features: [
+      "Native iOS and Android apps",
+      "Real-time data synchronization",
+      "Offline capabilities",
+      "Mobile approvals and workflows",
+      "GPS and barcode integration",
+      "Custom mobile app development"
+    ],
+    benefits: [
+      "Work from anywhere",
+      "Faster decision-making",
+      "Improved field operations",
+      "Enhanced customer service",
+      "Increased productivity"
+    ]
+  },
+  {
+    id: "sap-b1-8",
+    title: "SAP Business One Analytics & Reporting",
+    slug: "sap-business-one-analytics",
+    description: "Comprehensive analytics and reporting solutions for SAP Business One, transforming data into actionable business intelligence.",
+    icon: "BarChart2",
+    category: "sap",
+    features: [
+      "Interactive dashboards",
+      "Crystal Reports integration",
+      "Pervasive analytics",
+      "Custom report builder",
+      "Excel-based reporting",
+      "KPI monitoring and alerts"
+    ],
+    benefits: [
+      "Data-driven decisions",
+      "Real-time visibility",
+      "Reduced reporting time",
+      "Customized insights",
+      "Improved forecasting"
+    ]
+  },
+  {
+    id: "sap-b1-9",
+    title: "HR and Talent Management",
+    slug: "hr-talent-management",
+    description: "Complete human resource and talent management solutions integrated with SAP, covering the entire employee lifecycle from hire to retire.",
+    icon: "Users",
+    category: "sap",
+    features: [
+      "Core HR management",
+      "Recruitment and onboarding",
+      "Performance management",
+      "Learning and development",
+      "Compensation planning",
+      "Succession planning"
+    ],
+    benefits: [
+      "Streamlined HR processes",
+      "Improved employee engagement",
+      "Reduced administrative burden",
+      "Better talent retention",
+      "Compliance management"
+    ]
+  },
+  {
+    id: "sap-b1-10",
+    title: "SAP Add-ons",
+    slug: "sap-add-ons",
+    description: "Extend SAP Business One capabilities with certified add-ons and custom solutions tailored to your specific industry and business requirements.",
+    icon: "Puzzle",
+    category: "sap",
+    features: [
+      "Industry-specific solutions",
+      "E-commerce integrations",
+      "Advanced manufacturing",
+      "Warehouse management",
+      "CRM extensions",
+      "Custom development"
+    ],
+    benefits: [
+      "Extended functionality",
+      "Industry-specific features",
+      "Seamless integration",
+      "Increased ROI",
+      "Competitive advantage"
+    ]
+  },
+  {
+    id: "sap-b1-11",
+    title: "SAP Business One Demo",
+    slug: "sap-business-one-demo",
+    description: "Experience SAP Business One firsthand with our interactive demos and guided tours, showcasing the power and flexibility of SAP's SMB ERP solution.",
+    icon: "Play",
+    category: "sap",
+    features: [
+      "Live product demonstrations",
+      "Industry-specific scenarios",
+      "Hands-on sandbox environment",
+      "Personalized walkthroughs",
+      "Q&A with SAP experts",
+      "Implementation roadmap discussion"
+    ],
+    benefits: [
+      "See before you buy",
+      "Understand capabilities",
+      "Evaluate fit for your business",
+      "Learn best practices",
+      "Get expert guidance"
+    ]
+  },
+  // --- Legacy SAP Solutions ---
   {
     id: "1",
     title: "SAP S/4HANA",
