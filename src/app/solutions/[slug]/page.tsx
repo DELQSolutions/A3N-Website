@@ -4,7 +4,7 @@ import { SOLUTIONS, getSolutionBySlug } from "@/lib/constants/solutions";
 import { COMPANY } from "@/lib/constants/company";
 import { SolutionHero } from "@/components/solutions/slug/SolutionHero";
 import { SolutionContent } from "@/components/solutions/slug/SolutionContent";
-import { ServiceSidebar } from "@/components/services/slug/ServiceSidebar";
+import { SolutionSidebar } from "@/components/solutions/slug/SolutionSidebar";
 import { ServiceTechnologies } from "@/components/services/slug/ServiceTechnologies";
 import { ConsultationForm } from "@/components/services/slug/ConsultationForm";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -76,9 +76,9 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
       <main className="flex-grow py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[300px_1fr] gap-8 lg:gap-12 max-w-7xl mx-auto">
-            {/* Use existing ServiceSidebar - it works for both */}
+            {/* Use SolutionSidebar for solutions pages */}
             <div className="lg:sticky lg:top-24 lg:self-start">
-              <ServiceSidebar currentSlug={slug} />
+              <SolutionSidebar currentSlug={slug} />
             </div>
 
             <SolutionContent solution={solution} />

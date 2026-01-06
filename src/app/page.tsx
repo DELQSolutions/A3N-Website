@@ -16,7 +16,12 @@ export default function Home() {
       <WhyChooseUsSection />
       <WorkProcessSection />
       <TestimonialsSection />
-      <CTASection title={""} description={""} />
+      <CTASection
+        title="Ready to Transform Your Business?"
+        description="Partner with us to accelerate your digital transformation journey with expert SAP and IT solutions."
+        primaryButton={{ text: "Get Started", href: "/contact" }}
+        secondaryButton={{ text: "Our Services", href: "/services" }}
+      />
       <NewsletterSection />
     </div>
   );
