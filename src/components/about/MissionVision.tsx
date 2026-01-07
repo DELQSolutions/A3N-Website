@@ -47,7 +47,7 @@ export function MissionVision() {
         </div>
 
         {/* Image Section */}
-        <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden">
+        {/* <div className="relative h-[300px] md:h-[400px] rounded-2xl overflow-hidden">
           <Image
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
             alt="Our team working together"
@@ -56,7 +56,7 @@ export function MissionVision() {
             sizes="(max-width: 1200px) 100vw, 1200px"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-dark/80 via-dark/60 to-transparent" />
-        </div>
+        </div> */}
       </div>
     </section>
   );

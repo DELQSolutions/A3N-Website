@@ -24,8 +24,8 @@ export default function AboutPage() {
       <AboutHero />
       <AboutContent />
       <MissionVision />
-      <CEOSection />
       <CompanyValues />
+      <CEOSection />
       <TeamSection />
       <CTASection
         title={COMPANY.tagline}

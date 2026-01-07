@@ -59,7 +59,7 @@ export function SolutionSidebar({ currentSlug }: SolutionSidebarProps) {
                     </div>
                     <div>
                         <p className="text-sm font-medium">Have a Question?</p>
-                        <p className="text-2xl font-black">+91 8086874344</p>
+                        <p className="text-2xl font-black">+44 7586 955136</p>
                     </div>
                 </div>
                 <Button variant="secondary" className="w-full font-bold" asChild>

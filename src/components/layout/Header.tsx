@@ -2,15 +2,121 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { COMPANY } from "@/lib/constants/company";
-import { NAVIGATION } from "@/lib/constants/navigation";
+import { NAVIGATION, NavItem } from "@/lib/constants/navigation";
 import { Button } from "@/components/ui/button";
+
+// Define mega menu configurations for items with children
+const megaMenuConfig: Record<
+  string,
+  {
+    sections: {
+      title: string;
+      items: { label: string; href: string; description?: string }[];
+    }[];
+    description: string;
+    image?: string;
+  }
+> = {
+  '/services': {
+    sections: [
+      {
+        title: 'AI & Software Solutions',
+        items: [
+          { label: 'AI Solutions', href: '/services/ai-solutions', description: 'Cutting-edge AI & ML services' },
+          { label: 'Software Services', href: '/services/software-service', description: 'Custom development solutions' },
+          { label: 'RPA Solutions', href: '/services/rpa', description: 'Intelligent automation' },
+        ]
+      },
+      {
+        title: 'SAP Solutions',
+        items: [
+          { label: 'SAP Business One', href: '/services/sap-business-one', description: 'Complete ERP for SMBs' },
+          { label: 'SAP S/4HANA', href: '/services/sap-s4hana', description: 'Next-gen intelligent ERP' },
+          { label: 'SAP SuccessFactors', href: '/services/sap-successfactors', description: 'Cloud HR & talent management' },
+          { label: 'SAP ARIBA', href: '/services/sap-ariba', description: 'Procurement solutions' },
+          { label: 'BTP Application Development', href: '/services/btp-application', description: 'Custom SAP extensions' },
+        ]
+      },
+      {
+        title: 'Specialized Services',
+        items: [
+          { label: 'Generative AI', href: '/services/generative-ai', description: 'Advanced AI solutions' },
+          { label: 'Custom ERP', href: '/services/custom-erp', description: 'Tailored ERP systems' },
+          { label: 'Mobile App Development', href: '/services/mobile-app-development', description: 'Cross-platform apps' },
+        ]
+      }
+    ],
+    description: 'Transform your business with our comprehensive technology solutions and expert consulting services.',
+    image: '/images/services-hero.png',
+  },
+  // BEGIN: UPDATED SAP SOLUTIONS MEGA MENU
+  '/services/sap-solutions': {
+    sections: [
+      {
+        title: 'SAP Business One Suite',
+        items: [
+          { label: 'SAP Business One', href: '/services/sap-business-one', description: 'Complete ERP for SMBs' },
+          { label: 'SAP B1 Express Edition', href: '/services/sap-b1-express-edition', description: 'Simplified ERP for startups' },
+          { label: 'SAP Business One Cloud', href: '/services/sap-business-one-cloud', description: 'Cloud-native ERP solution' },
+          { label: 'SAP Business One Cloud Hosting', href: '/services/sap-business-one-cloud-hosting', description: 'Enterprise-grade hosting' },
+          { label: 'SAP Business One HANA', href: '/services/sap-business-one-hana', description: 'In-memory ERP platform' },
+          { label: 'SAP Business One Mobility', href: '/services/sap-business-one-mobility', description: 'Mobile ERP access' },
+          { label: 'SAP Business One Analytics', href: '/services/sap-business-one-analytics', description: 'Advanced analytics & reporting' },
+        ]
+      },
+      {
+        title: 'Enterprise SAP Solutions',
+        items: [
+          { label: 'SAP S/4HANA', href: '/services/sap-s4hana', description: 'Next-gen intelligent ERP' },
+          { label: 'SAP S/4 HANA Cloud', href: '/services/sap-s4-hana-cloud', description: 'Cloud ERP with AI automation' },
+          { label: 'SAP SuccessFactors', href: '/services/sap-successfactors', description: 'Cloud HR & talent management' },
+          { label: 'SAP ARIBA', href: '/services/sap-ariba', description: 'Procurement solutions' },
+          { label: 'SAP Fieldglass', href: '/services/sap-fieldglass', description: 'Vendor management system' },
+          { label: 'SAP Concur', href: '/services/sap-concur', description: 'Travel & expense management' },
+        ]
+      },
+      {
+        title: 'Specialized Services',
+        items: [
+          { label: 'HR & Talent Management', href: '/services/hr-talent-management', description: 'Complete HR solutions' },
+          { label: 'SAP Add-ons', href: '/services/sap-add-ons', description: 'Certified SAP extensions' },
+          { label: 'BTP Application Development', href: '/services/btp-application', description: 'Custom SAP extensions' },
+          { label: 'Custom ERP Solutions', href: '/services/custom-erp', description: 'Tailored ERP systems' },
+          { label: 'SAP Business One Demo', href: '/services/sap-business-one-demo', description: 'Interactive demos' },
+        ]
+      }
+    ],
+    description: "Comprehensive SAP solutions from Business One to S/4HANA, covering all your enterprise needs.",
+    image: "/images/sap-solutions-hero.png",
+  },
+  // END: UPDATED SAP SOLUTIONS MEGA MENU
+  '/solutions': {
+    sections: [
+      {
+        title: 'Industry Solutions',
+        items: [
+          { label: 'Manufacturing Solutions', href: '/solutions/manufacturing-solutions' },
+          { label: 'Healthcare Solutions', href: '/solutions/healthcare-solutions' },
+          { label: 'Retail Solutions', href: '/solutions/retail-solutions' },
+          { label: 'Financial Services', href: '/solutions/financial-services-solutions' },
+          { label: 'Supply Chain Solutions', href: '/solutions/supply-chain-solutions' },
+          { label: 'HR & Workforce Solutions', href: '/solutions/hr-workforce-solutions' },
+        ]
+      }
+    ],
+    description: 'Industry-specific solutions tailored to meet your unique business challenges and drive growth.',
+    image: '/images/solutions-hero.png',
+  }
+};
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMenus, setExpandedMenus] = useState<Set<string>>(new Set());
+  const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
+  const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const toggleMenu = (key: string) => {
     setExpandedMenus((prev) => {
@@ -24,84 +130,75 @@ export function Header() {
     });
   };
 
+  const handleMouseEnter = (href: string) => {
+    if (megaMenuTimeoutRef.current) {
+      clearTimeout(megaMenuTimeoutRef.current);
+    }
+    setActiveMegaMenu(href);
+  };
+
+  const handleMouseLeave = () => {
+    megaMenuTimeoutRef.current = setTimeout(() => {
+      setActiveMegaMenu(null);
+    }, 150);
+  };
+
+  const handleMegaMenuMouseEnter = () => {
+    if (megaMenuTimeoutRef.current) {
+      clearTimeout(megaMenuTimeoutRef.current);
+    }
+  };
+
+  const handleMegaMenuMouseLeave = () => {
+    megaMenuTimeoutRef.current = setTimeout(() => {
+      setActiveMegaMenu(null);
+    }, 150);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo with PNG */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href="/" className="flex items-center">
             <Image
               src="/images/logo.png"
               alt="A3N IT Consulting Logo"
-              width={36}
-              height={36}
-              className="h-6 w-6 sm:h-8 sm:w-8 object-contain"
+              width={80}
+              height={80}
+              className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
               priority
             />
-            <h2 className="text-lg sm:text-xl font-bold">A3N IT Consulting</h2>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {NAVIGATION.map((item) => (
-              <div key={item.href} className="relative group">
-                <Link
-                  href={item.href}
-                  className="text-sm font-medium transition-colors hover:text-primary"
+          <nav className="hidden md:flex items-center space-x-8">
+            {NAVIGATION.map((item) => {
+              const hasMegaMenu = item.children && megaMenuConfig[item.href];
+
+              return (
+                <div
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={() => hasMegaMenu && handleMouseEnter(item.href)}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  {item.label}
-                </Link>
-
-                {/* Level 1 Dropdown for items with children */}
-                {item.children && (
-                  <div className="absolute left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 bg-card border rounded-lg shadow-lg py-2 z-50">
-                    {item.children.map((child) => (
-                      <div key={child.href} className="relative group/submenu">
-                        <Link
-                          href={child.href}
-                          className="flex items-center justify-between px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary transition-colors"
-                        >
-                          <span>{child.label}</span>
-                          {child.children && <span className="text-xs ml-2">›</span>}
-                        </Link>
-
-                        {/* Level 2 Submenu */}
-                        {child.children && (
-                          <div className="absolute left-full top-0 ml-0 w-64 opacity-0 invisible group-hover/submenu:opacity-100 group-hover/submenu:visible transition-all duration-200 bg-card border rounded-lg shadow-lg py-2 z-50">
-                            {child.children.map((grandchild) => (
-                              <div key={grandchild.href} className="relative group/submenu2">
-                                <Link
-                                  href={grandchild.href}
-                                  className="flex items-center justify-between px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary transition-colors"
-                                >
-                                  <span>{grandchild.label}</span>
-                                  {grandchild.children && <span className="text-xs ml-2">›</span>}
-                                </Link>
-
-                                {/* Level 3 Submenu (for SAP Implementation / SAP Consulting children) */}
-                                {grandchild.children && (
-                                  <div className="absolute left-full top-0 ml-0 w-64 opacity-0 invisible group-hover/submenu2:opacity-100 group-hover/submenu2:visible transition-all duration-200 bg-card border rounded-lg shadow-lg py-2 z-50">
-                                    {grandchild.children.map((greatgrandchild) => (
-                                      <Link
-                                        key={greatgrandchild.href}
-                                        href={greatgrandchild.href}
-                                        className="block px-4 py-2 text-sm hover:bg-primary/10 hover:text-primary transition-colors"
-                                      >
-                                        {greatgrandchild.label}
-                                      </Link>
-                                    ))}
-                                  </div>
-                                )}
-                              </div>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+                  <Link
+                    href={item.href}
+                    className={`flex items-center gap-1 text-base font-medium transition-colors hover:text-primary ${
+                      activeMegaMenu === item.href ? 'text-primary' : ''
+                    }`}
+                  >
+                    {item.label}
+                    {item.children && (
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
+                        activeMegaMenu === item.href ? 'rotate-180' : ''
+                      }`} />
+                    )}
+                  </Link>
+                </div>
+              );
+            })}
           </nav>
 
           {/* CTA Button */}
@@ -113,137 +210,175 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors"
+            className="md:hidden p-3 rounded-lg hover:bg-primary/10 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-7 w-7" />
             ) : (
-              <Menu className="h-6 w-6" />
+              <Menu className="h-7 w-7" />
             )}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-primary/20">
-            <nav className="flex flex-col space-y-4">
-              {NAVIGATION.map((item) => {
-                const isExpanded = expandedMenus.has(item.href);
-                return (
-                  <div key={item.href}>
-                    <div className="flex items-center justify-between">
-                      <Link
-                        href={item.href}
-                        className="block text-sm font-medium hover:text-primary transition-colors flex-1"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                      {item.children && (
-                        <button
-                          onClick={() => toggleMenu(item.href)}
-                          className="p-1 hover:text-primary transition-colors"
-                        >
-                          <ChevronDown
-                            className={`h-4 w-4 transition-transform ${isExpanded ? "rotate-180" : ""
-                              }`}
-                          />
-                        </button>
-                      )}
-                    </div>
-
-                    {item.children && isExpanded && (
-                      <div className="ml-4 mt-2 space-y-2">
-                        {item.children.map((child) => {
-                          const childKey = `${item.href}-${child.href}`;
-                          const childExpanded = expandedMenus.has(childKey);
-                          return (
-                            <div key={child.href}>
-                              <div className="flex items-center justify-between">
-                                <Link
-                                  href={child.href}
-                                  className="block text-sm text-muted-foreground hover:text-primary transition-colors flex-1"
-                                  onClick={() => setMobileMenuOpen(false)}
-                                >
-                                  {child.label}
-                                </Link>
-                                {child.children && (
-                                  <button
-                                    onClick={() => toggleMenu(childKey)}
-                                    className="p-1 hover:text-primary transition-colors"
-                                  >
-                                    <ChevronDown
-                                      className={`h-3 w-3 transition-transform ${childExpanded ? "rotate-180" : ""
-                                        }`}
-                                    />
-                                  </button>
-                                )}
+      {/* Mega Menu Dropdown */}
+      {activeMegaMenu && megaMenuConfig[activeMegaMenu] && (
+        <div
+          className="absolute left-0 right-0 w-full bg-white border-t border-gray-100 shadow-2xl z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+          onMouseEnter={handleMegaMenuMouseEnter}
+          onMouseLeave={handleMegaMenuMouseLeave}
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div className="grid grid-cols-12 gap-8">
+              {/* Menu Sections */}
+              <div className="col-span-9">
+                <div className="grid grid-cols-3 gap-6">
+                  {megaMenuConfig[activeMegaMenu].sections.map((section, idx) => (
+                    <div key={idx}>
+                      <h3 className="text-sm font-bold text-primary uppercase tracking-wide mb-4">
+                        {section.title}
+                      </h3>
+                      <ul className="space-y-3">
+                        {section.items.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              onClick={() => setActiveMegaMenu(null)}
+                              className="group block p-3 rounded-lg hover:bg-primary/5 transition-all"
+                            >
+                              <div className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                {item.label}
                               </div>
-
-                              {child.children && childExpanded && (
-                                <div className="ml-4 mt-2 space-y-2">
-                                  {child.children.map((grandchild) => {
-                                    const grandchildKey = `${childKey}-${grandchild.href}`;
-                                    const grandchildExpanded = expandedMenus.has(grandchildKey);
-                                    return (
-                                      <div key={grandchild.href}>
-                                        <div className="flex items-center justify-between">
-                                          <Link
-                                            href={grandchild.href}
-                                            className="block text-xs text-muted-foreground/80 hover:text-primary transition-colors flex-1"
-                                            onClick={() => setMobileMenuOpen(false)}
-                                          >
-                                            {grandchild.label}
-                                          </Link>
-                                          {grandchild.children && (
-                                            <button
-                                              onClick={() => toggleMenu(grandchildKey)}
-                                              className="p-1 hover:text-primary transition-colors"
-                                            >
-                                              <ChevronDown
-                                                className={`h-3 w-3 transition-transform ${grandchildExpanded ? "rotate-180" : ""}`}
-                                              />
-                                            </button>
-                                          )}
-                                        </div>
-
-                                        {grandchild.children && grandchildExpanded && (
-                                          <div className="ml-4 mt-2 space-y-2">
-                                            {grandchild.children.map((greatgrandchild) => (
-                                              <Link
-                                                key={greatgrandchild.href}
-                                                href={greatgrandchild.href}
-                                                className="block text-xs text-muted-foreground/60 hover:text-primary transition-colors"
-                                                onClick={() => setMobileMenuOpen(false)}
-                                              >
-                                                • {greatgrandchild.label}
-                                              </Link>
-                                            ))}
-                                          </div>
-                                        )}
-                                      </div>
-                                    );
-                                  })}
+                              {item.description && (
+                                <div className="text-xs text-muted-foreground mt-1">
+                                  {item.description}
                                 </div>
                               )}
-                            </div>
-                          );
-                        })}
-                      </div>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Right Column - Featured Content */}
+              <div className="col-span-3">
+                <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-xl p-6 h-full">
+                  <div className="relative h-32 rounded-lg overflow-hidden mb-4 bg-gradient-to-br from-primary/10 to-accent/10">
+                    <Image
+                      src={megaMenuConfig[activeMegaMenu].image || '/images/placeholder.jpg'}
+                      alt="Service Preview"
+                      fill
+                      className="object-cover"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                    {megaMenuConfig[activeMegaMenu].description}
+                  </p>
+                  <Button asChild size="sm" className="w-full">
+                    <Link href="/contact">Get Started</Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="md:hidden py-5 border-t border-primary/20 bg-white">
+          <nav className="container mx-auto px-4 flex flex-col space-y-4">
+            {NAVIGATION.map((item) => {
+              const isExpanded = expandedMenus.has(item.href);
+              return (
+                <div key={item.href}>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={item.href}
+                      className="block text-base font-medium hover:text-primary transition-colors flex-1"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                    {item.children && (
+                      <button
+                        onClick={() => toggleMenu(item.href)}
+                        className="p-1 hover:text-primary transition-colors"
+                      >
+                        <ChevronDown
+                          className={`h-5 w-5 transition-transform ${
+                            isExpanded ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
                     )}
                   </div>
-                );
-              })}
-              <Button asChild className="w-full font-bold">
-                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
-                  Contact Us
-                </Link>
-              </Button>
-            </nav>
-          </div>
-        )}
-      </div>
+
+                  {item.children && isExpanded && (
+                    <div className="ml-4 mt-3 space-y-2">
+                      {item.children.map((child) => {
+                        const childKey = `${item.href}-${child.href}`;
+                        const childExpanded = expandedMenus.has(childKey);
+                        return (
+                          <div key={child.href}>
+                            <div className="flex items-center justify-between">
+                              <Link
+                                href={child.href}
+                                className="block text-sm py-2 px-3 rounded-lg bg-gray-50 text-gray-700 hover:bg-primary/10 hover:text-primary transition-colors flex-1"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {child.label}
+                              </Link>
+                              {child.children && (
+                                <button
+                                  onClick={() => toggleMenu(childKey)}
+                                  className="p-1 hover:text-primary transition-colors"
+                                >
+                                  <ChevronDown
+                                    className={`h-4 w-4 transition-transform ${
+                                      childExpanded ? "rotate-180" : ""
+                                    }`}
+                                  />
+                                </button>
+                              )}
+                            </div>
+
+                            {child.children && childExpanded && (
+                              <div className="ml-4 mt-2 space-y-1">
+                                {child.children.map((grandchild) => (
+                                  <Link
+                                    key={grandchild.href}
+                                    href={grandchild.href}
+                                    className="block text-sm py-2 px-3 rounded-lg text-gray-600 hover:bg-primary/10 hover:text-primary transition-colors"
+                                    onClick={() => setMobileMenuOpen(false)}
+                                  >
+                                    • {grandchild.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <Button asChild className="w-full font-bold mt-4">
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
+                Contact Us
+              </Link>
+            </Button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

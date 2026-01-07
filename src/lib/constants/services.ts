@@ -1,5 +1,24 @@
 import { Icons } from "@/components/shared/Icons";
 
+/*
+  To use these icons in your implementation elsewhere,
+  ensure you add the following import in relevant consumer files, such as:
+
+  import {
+    Sparkles,
+    Bot,
+    CheckSquare,
+    // ... existing icons ...
+    Brain,
+    Eye,
+    MessageSquare,
+    Network,
+    Rocket,
+    TrendingUp,
+    Lightbulb
+  } from "lucide-react";
+*/
+
 export interface Service {
   id: string;
   title: string;
@@ -474,36 +493,150 @@ export const SERVICES: Service[] = [
       "Certification exam prep"
     ]
   },
-  // --- AI Solutions ---
+  // --- AI & ML Solutions ---
   {
     id: "13",
     title: "Generative AI",
     slug: "generative-ai",
-    description: "Solutions powered by generative AI for content creation, automation, and new business models.",
+    description: "Advanced generative AI solutions for content creation, automation, and innovative business models.",
     icon: "Sparkles",
     category: "solutions",
     features: [
-      "Document and content generation",
-      "Text summarization and Q/A bots",
+      "GPT-based content generation",
+      "AI-powered document automation",
+      "Text summarization and Q&A bots",
       "AI workflow automation",
-      "Integration with SAP and legacy systems",
-      "Prompt engineering"
-    ]
+      "Integration with SAP and enterprise systems",
+      "Custom prompt engineering and fine-tuning"
+    ],
   },
   {
     id: "14",
     title: "Agentic AI",
     slug: "agentic-ai",
-    description: "Intelligent AI agents for business automation and process optimization.",
+    description: "Autonomous AI agents for intelligent business automation and decision-making.",
     icon: "Bot",
     category: "solutions",
     features: [
-      "End-to-end task automation",
+      "Autonomous task execution agents",
+      "Multi-agent orchestration systems",
       "Conversational business agents",
-      "Custom agent design",
-      "Interoperability with APIs and ERPs",
-      "Secure deployment and monitoring"
-    ]
+      "Custom agent design and deployment",
+      "API and ERP interoperability",
+      "Real-time monitoring and optimization"
+    ],
+  },
+  {
+    id: "24",
+    title: "Machine Learning Solutions",
+    slug: "machine-learning",
+    description: "Custom ML models and predictive analytics to extract insights and automate decision-making.",
+    icon: "Brain",
+    category: "solutions",
+    features: [
+      "Supervised and unsupervised learning",
+      "Predictive analytics and forecasting",
+      "Custom model training and deployment",
+      "Feature engineering and optimization",
+      "MLOps and model monitoring",
+      "Integration with business applications"
+    ],
+  },
+  {
+    id: "25",
+    title: "Computer Vision",
+    slug: "computer-vision",
+    description: "AI-powered image and video analysis for quality control, surveillance, and automation.",
+    icon: "Eye",
+    category: "solutions",
+    features: [
+      "Object detection and recognition",
+      "Quality inspection automation",
+      "Facial recognition and tracking",
+      "OCR and document processing",
+      "Real-time video analytics",
+      "Custom vision model development"
+    ],
+  },
+  {
+    id: "26",
+    title: "Natural Language Processing",
+    slug: "nlp-solutions",
+    description: "Advanced NLP solutions for text analysis, sentiment analysis, and language understanding.",
+    icon: "MessageSquare",
+    category: "solutions",
+    features: [
+      "Sentiment analysis and classification",
+      "Named entity recognition (NER)",
+      "Text mining and information extraction",
+      "Language translation services",
+      "Chatbot and virtual assistant development",
+      "Document understanding and processing"
+    ],
+  },
+  {
+    id: "27",
+    title: "Deep Learning",
+    slug: "deep-learning",
+    description: "Advanced neural network solutions for complex pattern recognition and prediction tasks.",
+    icon: "Network",
+    category: "solutions",
+    features: [
+      "Neural network architecture design",
+      "Transfer learning and fine-tuning",
+      "Time series forecasting with LSTM/GRU",
+      "Recommendation systems",
+      "Anomaly detection",
+      "GPU-accelerated model training"
+    ],
+  },
+  {
+    id: "28",
+    title: "AI Model Deployment & MLOps",
+    slug: "mlops",
+    description: "End-to-end ML lifecycle management, from model training to production deployment.",
+    icon: "Rocket",
+    category: "solutions",
+    features: [
+      "CI/CD pipelines for ML models",
+      "Model versioning and registry",
+      "A/B testing and experimentation",
+      "Model performance monitoring",
+      "Auto-scaling and load balancing",
+      "Cloud and edge deployment"
+    ],
+  },
+  {
+    id: "29",
+    title: "AI-Powered Analytics",
+    slug: "ai-analytics",
+    description: "Advanced analytics powered by AI for deeper business insights and data-driven decisions.",
+    icon: "TrendingUp",
+    category: "solutions",
+    features: [
+      "Automated data analysis",
+      "Predictive and prescriptive analytics",
+      "Business intelligence dashboards",
+      "Real-time anomaly detection",
+      "Customer behavior analysis",
+      "Sales and demand forecasting"
+    ],
+  },
+  {
+    id: "30",
+    title: "AI Consulting & Strategy",
+    slug: "ai-consulting",
+    description: "Strategic AI consulting to identify opportunities and create AI transformation roadmaps.",
+    icon: "Lightbulb",
+    category: "solutions",
+    features: [
+      "AI readiness assessment",
+      "Use case identification and prioritization",
+      "AI strategy and roadmap development",
+      "ROI analysis and business case",
+      "Technology stack selection",
+      "Change management and training"
+    ],
   },
   // --- RPA Services ---
   {

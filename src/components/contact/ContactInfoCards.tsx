@@ -28,8 +28,8 @@ export function ContactInfoCards() {
     {
       icon: Users,
       title: "Join our team",
-      content: "careers@a3nitconsulting.com",
-      link: "mailto:careers@a3nitconsulting.com",
+      content: "careers@a3n.co.uk",
+      link: "mailto:careers@a3n.co.uk",
       color: "from-green-500 to-emerald-500",
     },
   ];

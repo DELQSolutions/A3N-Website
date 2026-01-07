@@ -4,14 +4,14 @@ export const COMPANY = {
   description: "Leading provider of comprehensive SAP consulting services, specializing in digital transformation and enterprise solutions.",
   
   contact: {
-    email: "contact@a3nitconsulting.com",
-    phone: "+1 (555) 123-4567",
+    email: "contact@a3n.co.uk",
+    phone: "+44 7586 955136",
     address: {
-      street: "123 Tech Avenue",
-      city: "Innovation City",
-      state: "CA",
-      zip: "94043",
-      full: "123 Tech Avenue, Innovation City, CA 94043"
+      street: "Foundry Mews",
+      city: "West London",
+      state: "",
+      zip: "TW3 2AQ",
+      full: "Foundry Mews, TW3 2AQ West London"
     }
   },
   

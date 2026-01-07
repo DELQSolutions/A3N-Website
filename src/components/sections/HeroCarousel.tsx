@@ -47,7 +47,7 @@ export function HeroCarousel() {
   };
 
   return (
-    <section className="relative min-h-[70vh] lg:min-h-[85vh] flex items-center carousel-container overflow-hidden">
+    <section className="relative h-screen flex items-center carousel-container overflow-hidden">
       {/* Particle Background */}
       <ParticleBackground />
 

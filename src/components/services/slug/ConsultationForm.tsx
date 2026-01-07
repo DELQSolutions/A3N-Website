@@ -123,7 +123,7 @@ export function ConsultationForm() {
                   </div>
                   <div>
                     <p className="font-medium mb-1">Call Us Anytime</p>
-                    <p className="text-3xl font-black">+91 8086874344</p>
+                    <p className="text-3xl font-black">+44 7586 955136</p>
                   </div>
                 </div>
                 <p className="text-white/90 mb-6">

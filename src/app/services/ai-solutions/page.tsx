@@ -8,13 +8,21 @@ import { Icons } from "@/components/shared/Icons";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: `AI Solutions - ${COMPANY.name}`,
-    description: "Cutting-edge AI solutions including Generative AI and Agentic AI to transform your business operations.",
+    title: `AI & ML Solutions - ${COMPANY.name}`,
+    description: "Comprehensive AI and Machine Learning solutions including Generative AI, Agentic AI, Computer Vision, NLP, Deep Learning, and MLOps to transform your business.",
 };
 
-const AI_SERVICES = SERVICES.filter(s =>
-    ["generative-ai", "agentic-ai"].includes(s.slug)
-);
+const AI_SERVICES = SERVICES.filter((s) => [
+    "generative-ai",
+    "agentic-ai",
+    "machine-learning",
+    "computer-vision",
+    "nlp-solutions",
+    "deep-learning",
+    "mlops",
+    "ai-analytics",
+    "ai-consulting"
+].includes(s.slug));
 
 export default function AISolutionsPage() {
     return (
@@ -28,10 +36,10 @@ export default function AISolutionsPage() {
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20 text-center">
                     <div className="max-w-4xl mx-auto">
                         <h1 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight text-white">
-                            <span className="gradient-text">AI Solutions</span>
+                            <span className="gradient-text">AI & ML Solutions</span>
                         </h1>
                         <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
-                            Harness the power of artificial intelligence to automate, innovate, and transform your business
+                            Transform your business with cutting-edge Artificial Intelligence and Machine Learning solutions—from predictive analytics to autonomous agents
                         </p>
                     </div>
                 </div>
@@ -41,13 +49,13 @@ export default function AISolutionsPage() {
             <section className="py-16 md:py-24">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
-                        <span className="section-title pl-8">Our AI Services</span>
+                        <span className="section-title pl-8">Complete AI/ML Stack</span>
                         <h2 className="text-3xl md:text-4xl font-bold mt-4">
-                            Intelligent <span className="text-primary">Automation</span>
+                            AI & ML <span className="text-primary">Expertise</span>
                         </h2>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
                         {AI_SERVICES.map((service) => {
                             const IconComponent = Icons[service.icon];
                             return (
