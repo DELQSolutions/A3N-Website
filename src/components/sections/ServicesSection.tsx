@@ -47,7 +47,7 @@ export function ServicesSection() {
             AI &amp; ML Solutions | Software Development | SAP Solutions | Resource Augmentation
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
-            Our Services Built <span className="text-primary">Specifically</span> For Your
+            Our Services & Solutions - Built <span className="text-primary">Specifically</span> For Your
             Business
           </h2>
         </div>

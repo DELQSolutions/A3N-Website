@@ -20,39 +20,55 @@ const megaMenuConfig: Record<
     image?: string;
   }
 > = {
-  '/services': {
+  '/services/ai-solutions': {
     sections: [
       {
-        title: 'AI & Software Solutions',
+        title: 'Core AI Solutions',
         items: [
-          { label: 'AI Solutions', href: '/services/ai-solutions', description: 'Cutting-edge AI & ML services' },
-          { label: 'Software Services', href: '/services/software-service', description: 'Custom development solutions' },
-          { label: 'RPA Solutions', href: '/services/rpa', description: 'Intelligent automation' },
+          { label: 'Generative AI', href: '/services/generative-ai', description: 'Advanced generative AI models' },
+          { label: 'Agentic AI', href: '/services/agentic-ai', description: 'Autonomous AI agents' },
+          { label: 'Machine Learning', href: '/services/machine-learning', description: 'ML model development' },
+          { label: 'Computer Vision', href: '/services/computer-vision', description: 'Image & video AI' },
         ]
       },
       {
-        title: 'SAP Solutions',
+        title: 'Advanced AI',
         items: [
-          { label: 'SAP Business One', href: '/services/sap-business-one', description: 'Complete ERP for SMBs' },
-          { label: 'SAP S/4HANA', href: '/services/sap-s4hana', description: 'Next-gen intelligent ERP' },
-          { label: 'SAP SuccessFactors', href: '/services/sap-successfactors', description: 'Cloud HR & talent management' },
-          { label: 'SAP ARIBA', href: '/services/sap-ariba', description: 'Procurement solutions' },
-          { label: 'BTP Application Development', href: '/services/btp-application', description: 'Custom SAP extensions' },
-        ]
-      },
-      {
-        title: 'Specialized Services',
-        items: [
-          { label: 'Generative AI', href: '/services/generative-ai', description: 'Advanced AI solutions' },
-          { label: 'Custom ERP', href: '/services/custom-erp', description: 'Tailored ERP systems' },
-          { label: 'Mobile App Development', href: '/services/mobile-app-development', description: 'Cross-platform apps' },
+          { label: 'NLP Solutions', href: '/services/nlp-solutions', description: 'Natural language processing' },
+          { label: 'Deep Learning', href: '/services/deep-learning', description: 'Neural network solutions' },
+          { label: 'MLOps', href: '/services/mlops', description: 'ML operations & deployment' },
+          { label: 'AI Analytics', href: '/services/ai-analytics', description: 'Predictive analytics' },
         ]
       }
     ],
-    description: 'Transform your business with our comprehensive technology solutions and expert consulting services.',
-    image: '/images/services-hero.png',
+    description: 'Cutting-edge AI and Machine Learning solutions to transform your business operations.',
+    image: '/images/ai-solutions-hero.png',
   },
-  // BEGIN: UPDATED SAP SOLUTIONS MEGA MENU
+  '/services/software-service': {
+    sections: [
+      {
+        title: 'RPA & Automation',
+        items: [
+          { label: 'RPA Solutions', href: '/services/rpa', description: 'Intelligent automation' },
+          { label: 'Automation Consulting', href: '/services/automation-consulting', description: 'Expert automation guidance' },
+          { label: 'Bot Development', href: '/services/bot-development', description: 'Custom bot creation' },
+          { label: 'RPA Training', href: '/services/rpa-training', description: 'RPA training & support' },
+        ]
+      },
+      {
+        title: 'Development Services',
+        items: [
+          { label: 'Dedicated Resources', href: '/services/dedicated-resource', description: 'Hire expert developers' },
+          { label: 'Offshore Development', href: '/services/offshore-development', description: 'ODC setup & management' },
+          { label: 'E-Commerce Development', href: '/services/ecommerce-development', description: 'Online store solutions' },
+          { label: 'Mobile App Development', href: '/services/mobile-app-development', description: 'iOS & Android apps' },
+          { label: 'Web Development', href: '/services/web-development', description: 'Custom web applications' },
+        ]
+      }
+    ],
+    description: 'Comprehensive software development and automation services tailored to your needs.',
+    image: '/images/software-hero.png',
+  },
   '/services/sap-solutions': {
     sections: [
       {
@@ -61,55 +77,37 @@ const megaMenuConfig: Record<
           { label: 'SAP Business One', href: '/services/sap-business-one', description: 'Complete ERP for SMBs' },
           { label: 'SAP B1 Express Edition', href: '/services/sap-b1-express-edition', description: 'Simplified ERP for startups' },
           { label: 'SAP Business One Cloud', href: '/services/sap-business-one-cloud', description: 'Cloud-native ERP solution' },
-          { label: 'SAP Business One Cloud Hosting', href: '/services/sap-business-one-cloud-hosting', description: 'Enterprise-grade hosting' },
+          { label: 'SAP B1 Cloud Hosting', href: '/services/sap-business-one-cloud-hosting', description: 'Enterprise hosting' },
           { label: 'SAP Business One HANA', href: '/services/sap-business-one-hana', description: 'In-memory ERP platform' },
-          { label: 'SAP Business One Mobility', href: '/services/sap-business-one-mobility', description: 'Mobile ERP access' },
-          { label: 'SAP Business One Analytics', href: '/services/sap-business-one-analytics', description: 'Advanced analytics & reporting' },
+          { label: 'SAP B1 Mobility', href: '/services/sap-business-one-mobility', description: 'Mobile ERP access' },
         ]
       },
       {
-        title: 'Enterprise SAP Solutions',
+        title: 'Enterprise SAP',
         items: [
           { label: 'SAP S/4HANA', href: '/services/sap-s4hana', description: 'Next-gen intelligent ERP' },
-          { label: 'SAP S/4 HANA Cloud', href: '/services/sap-s4-hana-cloud', description: 'Cloud ERP with AI automation' },
-          { label: 'SAP SuccessFactors', href: '/services/sap-successfactors', description: 'Cloud HR & talent management' },
+          { label: 'SAP S/4 HANA Cloud', href: '/services/sap-s4-hana-cloud', description: 'Cloud ERP with AI' },
+          { label: 'SAP SuccessFactors', href: '/services/sap-successfactors', description: 'Cloud HR management' },
           { label: 'SAP ARIBA', href: '/services/sap-ariba', description: 'Procurement solutions' },
-          { label: 'SAP Fieldglass', href: '/services/sap-fieldglass', description: 'Vendor management system' },
-          { label: 'SAP Concur', href: '/services/sap-concur', description: 'Travel & expense management' },
+          { label: 'SAP Fieldglass', href: '/services/sap-fieldglass', description: 'Vendor management' },
+          { label: 'SAP Concur', href: '/services/sap-concur', description: 'Travel & expense' },
         ]
       },
       {
-        title: 'Specialized Services',
+        title: 'Specialized SAP',
         items: [
+          { label: 'SAP B1 Analytics', href: '/services/sap-business-one-analytics', description: 'Advanced analytics' },
           { label: 'HR & Talent Management', href: '/services/hr-talent-management', description: 'Complete HR solutions' },
-          { label: 'SAP Add-ons', href: '/services/sap-add-ons', description: 'Certified SAP extensions' },
-          { label: 'BTP Application Development', href: '/services/btp-application', description: 'Custom SAP extensions' },
-          { label: 'Custom ERP Solutions', href: '/services/custom-erp', description: 'Tailored ERP systems' },
-          { label: 'SAP Business One Demo', href: '/services/sap-business-one-demo', description: 'Interactive demos' },
+          { label: 'SAP Add-ons', href: '/services/sap-add-ons', description: 'Certified extensions' },
+          { label: 'SAP B1 Demo', href: '/services/sap-business-one-demo', description: 'Interactive demos' },
+          { label: 'BTP Development', href: '/services/btp-application', description: 'Custom SAP apps' },
+          { label: 'Custom ERP', href: '/services/custom-erp', description: 'Tailored ERP systems' },
         ]
       }
     ],
     description: "Comprehensive SAP solutions from Business One to S/4HANA, covering all your enterprise needs.",
     image: "/images/sap-solutions-hero.png",
   },
-  // END: UPDATED SAP SOLUTIONS MEGA MENU
-  '/solutions': {
-    sections: [
-      {
-        title: 'Industry Solutions',
-        items: [
-          { label: 'Manufacturing Solutions', href: '/solutions/manufacturing-solutions' },
-          { label: 'Healthcare Solutions', href: '/solutions/healthcare-solutions' },
-          { label: 'Retail Solutions', href: '/solutions/retail-solutions' },
-          { label: 'Financial Services', href: '/solutions/financial-services-solutions' },
-          { label: 'Supply Chain Solutions', href: '/solutions/supply-chain-solutions' },
-          { label: 'HR & Workforce Solutions', href: '/solutions/hr-workforce-solutions' },
-        ]
-      }
-    ],
-    description: 'Industry-specific solutions tailored to meet your unique business challenges and drive growth.',
-    image: '/images/solutions-hero.png',
-  }
 };
 
 export function Header() {

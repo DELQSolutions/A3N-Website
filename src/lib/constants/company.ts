@@ -1,5 +1,5 @@
 export const COMPANY = {
-  name: "A3N It Consulting",
+  name: "A3N IT Consulting",
   tagline: "Innovate | Implement | Improve",
   description: "Leading provider of comprehensive SAP consulting services, specializing in digital transformation and enterprise solutions.",
   

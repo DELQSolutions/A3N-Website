@@ -14,36 +14,32 @@ export const NAVIGATION: NavItem[] = [
     href: '/about'
   },
   {
-    label: 'Services',
-    href: '/services',
+    label: 'AI & ML Solutions',
+    href: '/services/ai-solutions',
     children: [
-      {
-        label: 'AI Solutions',
-        href: '/services/ai-solutions',
-        children: [
-          { label: 'Generative AI', href: '/services/generative-ai' },
-          { label: 'Agentic AI', href: '/services/agentic-ai' }
-        ]
-      },
-      {
-        label: 'RPA',
-        href: '/services/rpa',
-        children: [
-          { label: 'Automation Consulting', href: '/services/automation-consulting' },
-          { label: 'BoT Development and Implementation', href: '/services/bot-development' },
-          { label: 'Training and Support', href: '/services/rpa-training' }
-        ]
-      },
-      {
-        label: 'Software Service',
-        href: '/services/software-service',
-        children: [
-          { label: 'Hire Dedicated Resource', href: '/services/dedicated-resource' },
-          { label: 'Offshore Development Centre', href: '/services/offshore-development' },
-          { label: 'E-Commerce Development', href: '/services/ecommerce-development' },
-          { label: 'Mobile App Development', href: '/services/mobile-app-development' }
-        ]
-      }
+      { label: 'Generative AI', href: '/services/generative-ai' },
+      { label: 'Agentic AI', href: '/services/agentic-ai' },
+      { label: 'Machine Learning', href: '/services/machine-learning' },
+      { label: 'Computer Vision', href: '/services/computer-vision' },
+      { label: 'NLP Solutions', href: '/services/nlp-solutions' },
+      { label: 'Deep Learning', href: '/services/deep-learning' },
+      { label: 'MLOps', href: '/services/mlops' },
+      { label: 'AI Analytics', href: '/services/ai-analytics' }
+    ]
+  },
+  {
+    label: 'Software Solutions',
+    href: '/services/software-service',
+    children: [
+      { label: 'RPA Solutions', href: '/services/rpa' },
+      { label: 'Automation Consulting', href: '/services/automation-consulting' },
+      { label: 'Bot Development and Implementation', href: '/services/bot-development' },
+      { label: 'RPA Training and Support', href: '/services/rpa-training' },
+      { label: 'Hire Dedicated Resource', href: '/services/dedicated-resource' },
+      { label: 'Offshore Development Centre', href: '/services/offshore-development' },
+      { label: 'E-Commerce Development', href: '/services/ecommerce-development' },
+      { label: 'Mobile App Development', href: '/services/mobile-app-development' },
+      { label: 'Web Development', href: '/services/web-development' }
     ]
   },
   {
@@ -71,23 +67,15 @@ export const NAVIGATION: NavItem[] = [
     ]
   },
   {
-    label: 'Solutions',
-    href: '/solutions',
-    children: [
-      { label: 'Manufacturing Solutions', href: '/solutions/manufacturing-solutions' },
-      { label: 'Healthcare Solutions', href: '/solutions/healthcare-solutions' },
-      { label: 'Retail Solutions', href: '/solutions/retail-solutions' },
-      { label: 'Financial Services Solutions', href: '/solutions/financial-services-solutions' },
-      { label: 'Supply Chain Solutions', href: '/solutions/supply-chain-solutions' },
-      { label: 'HR & Workforce Solutions', href: '/solutions/hr-workforce-solutions' }
-    ]
+    label: 'Resource Augmentation',
+    href: '/resource-augmentation'
   },
+  // {
+  //   label: 'Insights',
+  //   href: '/insights'
+  // },
   {
-    label: 'Portfolio',
-    href: '/gallery'
-  },
-  {
-    label: 'Contact',
-    href: '/contact'
+    label: 'Careers',
+    href: '/careers'
   }
 ] as const;
