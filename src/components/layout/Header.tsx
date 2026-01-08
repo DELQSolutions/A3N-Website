@@ -26,8 +26,18 @@ const megaMenuConfig: Record<
         title: 'Company',
         items: [
           { label: 'About Us', href: '/about', description: 'Who we are & what we do' },
+        ]
+      },
+      {
+        title: 'Resources',
+        items: [
           { label: 'Insights', href: '/insights', description: 'Latest news & tech insights' },
-          { label: 'Careers', href: '/careers', description: 'Join our team' },
+        ]
+      },
+      {
+        title: 'Careers',
+        items: [
+          { label: 'Join Us', href: '/careers', description: 'Join our team' },
         ]
       }
     ],
@@ -77,7 +87,6 @@ const megaMenuConfig: Record<
       {
         title: 'Development Services',
         items: [
-          { label: 'Dedicated Resources', href: '/services/dedicated-resource', description: 'Hire expert developers' },
           { label: 'E-Commerce Development', href: '/services/ecommerce-development', description: 'Online store solutions' },
           { label: 'Mobile App Development', href: '/services/mobile-app-development', description: 'iOS & Android apps' },
           { label: 'Web Development', href: '/services/web-development', description: 'Custom web applications' },
@@ -87,6 +96,7 @@ const megaMenuConfig: Record<
         title: 'Offshore Development',
         items: [
           { label: 'Offshore Development', href: '/services/offshore-development', description: 'ODC setup & management' },
+          { label: 'Dedicated Resources', href: '/services/dedicated-resource', description: 'Hire expert developers' },
         ]
       }
     ],
