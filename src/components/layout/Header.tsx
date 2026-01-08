@@ -156,21 +156,21 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-sm">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-20 lg:h-24 items-center justify-between gap-4">
           {/* Logo with PNG */}
           <Link href="/" className="flex items-center">
             <Image
               src="/images/logo.png"
               alt="A3N IT Consulting Logo"
-              width={80}
-              height={80}
-              className="h-16 w-16 sm:h-20 sm:w-20 object-contain"
+              width={60}
+              height={60}
+              className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
             {NAVIGATION.map((item) => {
               const hasMegaMenu = item.children && megaMenuConfig[item.href];
 
@@ -183,7 +183,7 @@ export function Header() {
                 >
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-1 text-base font-medium transition-colors hover:text-primary ${
+                    className={`flex items-center gap-0.5 text-sm xl:text-base font-medium transition-colors hover:text-primary whitespace-nowrap ${
                       activeMegaMenu === item.href ? 'text-primary' : ''
                     }`}
                   >
@@ -200,21 +200,21 @@ export function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button asChild className="font-bold">
+          <div className="hidden lg:block">
+            <Button asChild className="font-bold text-sm xl:text-base px-4 xl:px-6">
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-3 rounded-lg hover:bg-primary/10 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-primary/10 transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <X className="h-7 w-7" />
+              <X className="h-6 w-6" />
             ) : (
-              <Menu className="h-7 w-7" />
+              <Menu className="h-6 w-6" />
             )}
           </button>
         </div>
@@ -290,7 +290,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden py-5 border-t border-primary/20 bg-white">
+        <div className="lg:hidden py-4 border-t border-primary/20 bg-white">
           <nav className="container mx-auto px-4 flex flex-col space-y-4">
             {NAVIGATION.map((item) => {
               const isExpanded = expandedMenus.has(item.href);
