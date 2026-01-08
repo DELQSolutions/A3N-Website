@@ -11,7 +11,12 @@ export const NAVIGATION: NavItem[] = [
   },
   {
     label: 'About',
-    href: '/about'
+    href: '/about',
+    children: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Insights', href: '/insights' },
+      { label: 'Careers', href: '/careers' }
+    ]
   },
   {
     label: 'AI & ML Solutions',
@@ -69,13 +74,5 @@ export const NAVIGATION: NavItem[] = [
   {
     label: 'Resource Augmentation',
     href: '/resource-augmentation'
-  },
-  // {
-  //   label: 'Insights',
-  //   href: '/insights'
-  // },
-  {
-    label: 'Careers',
-    href: '/careers'
   }
 ] as const;

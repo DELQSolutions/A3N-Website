@@ -20,24 +20,43 @@ const megaMenuConfig: Record<
     image?: string;
   }
 > = {
+  '/about': {
+    sections: [
+      {
+        title: 'Company',
+        items: [
+          { label: 'About Us', href: '/about', description: 'Who we are & what we do' },
+          { label: 'Insights', href: '/insights', description: 'Latest news & tech insights' },
+          { label: 'Careers', href: '/careers', description: 'Join our team' },
+        ]
+      }
+    ],
+    description: 'Learn more about our mission, values, and the opportunities to grow with us.',
+    image: '/images/solutions-hero.png',
+  },
   '/services/ai-solutions': {
     sections: [
       {
-        title: 'Core AI Solutions',
+        title: 'Next-Gen AI',
         items: [
           { label: 'Generative AI', href: '/services/generative-ai', description: 'Advanced generative AI models' },
           { label: 'Agentic AI', href: '/services/agentic-ai', description: 'Autonomous AI agents' },
+          { label: 'AI Analytics', href: '/services/ai-analytics', description: 'Predictive analytics' },
+        ]
+      },
+      {
+        title: 'Core Intelligence',
+        items: [
           { label: 'Machine Learning', href: '/services/machine-learning', description: 'ML model development' },
+          { label: 'Deep Learning', href: '/services/deep-learning', description: 'Neural network solutions' },
           { label: 'Computer Vision', href: '/services/computer-vision', description: 'Image & video AI' },
         ]
       },
       {
-        title: 'Advanced AI',
+        title: 'Applied AI & Ops',
         items: [
           { label: 'NLP Solutions', href: '/services/nlp-solutions', description: 'Natural language processing' },
-          { label: 'Deep Learning', href: '/services/deep-learning', description: 'Neural network solutions' },
           { label: 'MLOps', href: '/services/mlops', description: 'ML operations & deployment' },
-          { label: 'AI Analytics', href: '/services/ai-analytics', description: 'Predictive analytics' },
         ]
       }
     ],
@@ -59,10 +78,15 @@ const megaMenuConfig: Record<
         title: 'Development Services',
         items: [
           { label: 'Dedicated Resources', href: '/services/dedicated-resource', description: 'Hire expert developers' },
-          { label: 'Offshore Development', href: '/services/offshore-development', description: 'ODC setup & management' },
           { label: 'E-Commerce Development', href: '/services/ecommerce-development', description: 'Online store solutions' },
           { label: 'Mobile App Development', href: '/services/mobile-app-development', description: 'iOS & Android apps' },
           { label: 'Web Development', href: '/services/web-development', description: 'Custom web applications' },
+        ]
+      },
+      {
+        title: 'Offshore Development',
+        items: [
+          { label: 'Offshore Development', href: '/services/offshore-development', description: 'ODC setup & management' },
         ]
       }
     ],
@@ -183,15 +207,13 @@ export function Header() {
                 >
                   <Link
                     href={item.href}
-                    className={`flex items-center gap-0.5 text-sm xl:text-base font-medium transition-colors hover:text-primary whitespace-nowrap ${
-                      activeMegaMenu === item.href ? 'text-primary' : ''
-                    }`}
+                    className={`flex items-center gap-0.5 text-sm xl:text-base font-medium transition-colors hover:text-primary whitespace-nowrap ${activeMegaMenu === item.href ? 'text-primary' : ''
+                      }`}
                   >
                     {item.label}
                     {item.children && (
-                      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${
-                        activeMegaMenu === item.href ? 'rotate-180' : ''
-                      }`} />
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeMegaMenu === item.href ? 'rotate-180' : ''
+                        }`} />
                     )}
                   </Link>
                 </div>
@@ -310,9 +332,8 @@ export function Header() {
                         className="p-1 hover:text-primary transition-colors"
                       >
                         <ChevronDown
-                          className={`h-5 w-5 transition-transform ${
-                            isExpanded ? "rotate-180" : ""
-                          }`}
+                          className={`h-5 w-5 transition-transform ${isExpanded ? "rotate-180" : ""
+                            }`}
                         />
                       </button>
                     )}
@@ -339,9 +360,8 @@ export function Header() {
                                   className="p-1 hover:text-primary transition-colors"
                                 >
                                   <ChevronDown
-                                    className={`h-4 w-4 transition-transform ${
-                                      childExpanded ? "rotate-180" : ""
-                                    }`}
+                                    className={`h-4 w-4 transition-transform ${childExpanded ? "rotate-180" : ""
+                                      }`}
                                   />
                                 </button>
                               )}

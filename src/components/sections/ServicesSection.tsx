@@ -44,7 +44,7 @@ export function ServicesSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="section-title">
-            AI &amp; ML Solutions | Software Development | SAP Solutions | Resource Augmentation
+            Services We Provide
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
             Our Services & Solutions - Built <span className="text-primary">Specifically</span> For Your

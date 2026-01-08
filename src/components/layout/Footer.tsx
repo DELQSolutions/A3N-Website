@@ -58,10 +58,10 @@ export function Footer() {
             <h4 className="text-lg font-bold mb-4">Quick Links</h4>
             <ul className="space-y-3">
               {[
-                { label: "Home", href: "/" },
-                { label: "About", href: "/about" },
-                { label: "Services", href: "/services" },
-                { label: "Contact", href: "/contact" },
+                { label: "AI & ML Solutions", href: "/services/ai-solutions" },
+                { label: "Software Solutions", href: "/services/software-service" },
+                { label: "SAP Solutions", href: "/services/sap-solutions" },
+                { label: "Resource Augmentation", href: "/resource-augmentation" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
