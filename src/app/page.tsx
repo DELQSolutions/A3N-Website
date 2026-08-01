@@ -1,6 +1,7 @@
 import { HeroCarousel } from "@/components/sections/HeroCarousel";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { SolutionHighlightsSection } from "@/components/sections/SolutionHighlightsSection";
 import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 import { WorkProcessSection } from "@/components/sections/WorkProcessSection";
 import { CTASection } from "@/components/sections/CTASection";
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="flex flex-col">
       <HeroCarousel />
       <AboutSection />
+      <SolutionHighlightsSection />
       <ServicesSection />
       <WhyChooseUsSection />
       <WorkProcessSection />

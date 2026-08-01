@@ -52,7 +52,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function ServiceDetailPage({ params }: ServicePageProps) {
+export async function ServiceDetailPage({ params }: ServicePageProps) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
 
@@ -173,3 +173,5 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     </div>
   );
 }
+
+export default ServiceDetailPage;

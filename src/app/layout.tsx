@@ -33,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${workSans.className} antialiased bg-white text-foreground`}>
         <div className="flex flex-col min-h-screen">
           <Header />

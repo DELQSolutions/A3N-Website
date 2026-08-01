@@ -6,19 +6,26 @@ import { ParticleBackground } from "@/components/effects/ParticleBackground";
 
 const slides = [
   {
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80",
-    title: "Empowering Businesses with Innovative IT Solutions",
-    description: "We specialize in SAP consulting and a wide range of IT services to help your business thrive in the digital age.",
+    type: "video",
+    src: "/videos/hero-ai.mp4",
+    poster: "/images/sap-hero.png",
+    duration: 9000,
+    title: "SAP-first Digital Transformation for Modern Enterprises",
+    description: "A3N leads with SAP consulting, implementation, and optimization while also delivering AI, software, and resource augmentation services to power growth.",
   },
   {
-    image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=80",
-    title: "Transform Your Enterprise with SAP Solutions",
-    description: "Expert SAP implementation and consulting services tailored to your business needs.",
+    type: "image",
+    image: "/images/services-hero.png",
+    duration: 5000,
+    title: "End-to-End SAP Expertise",
+    description: "From SAP Business One and S/4HANA to SuccessFactors, ARIBA, and beyond, we help businesses scale with confidence.",
   },
   {
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80",
-    title: "Digital Transformation Made Simple",
-    description: "Accelerate your digital journey with our comprehensive technology solutions.",
+    type: "image",
+    image: "/images/solutions-hero.png",
+    duration: 5000,
+    title: "Technology Services Beyond SAP",
+    description: "We bring together AI, automation, software engineering, and managed talent solutions for a complete digital transformation roadmap.",
   },
 ];
 
@@ -26,12 +33,13 @@ export function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const currentDuration = slides[currentSlide]?.duration ?? 5000;
+    const interval = setTimeout(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 5000);
+    }, currentDuration);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearTimeout(interval);
+  }, [currentSlide]);
 
   const changeSlide = (direction: number) => {
     setCurrentSlide((prev) => {
@@ -56,10 +64,27 @@ export function HeroCarousel() {
         <div
           key={index}
           className={`carousel-slide ${index === currentSlide ? "active" : ""}`}
-          style={{
-            backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(15,23,42,0.8) 100%), url(${slide.image})`,
-          }}
-        />
+        >
+          {slide.type === "video" ? (
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src={slide.src}
+              poster={slide.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          ) : (
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(15,23,42,0.8) 100%), url(${slide.image})`,
+              }}
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-slate-900/70 to-slate-950/80" />
+        </div>
       ))}
 
       {/* Navigation Arrows */}

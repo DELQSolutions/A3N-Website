@@ -192,13 +192,13 @@ export function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 lg:h-24 items-center justify-between gap-4">
           {/* Logo with PNG */}
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center shrink-0">
             <Image
               src="/images/logo.png"
               alt="A3N IT Consulting Logo"
-              width={60}
-              height={60}
-              className="h-12 w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 object-contain"
+              width={80}
+              height={80}
+              className="h-14 w-14 md:h-16 md:w-16 lg:h-20 lg:w-20 object-contain"
               priority
             />
           </Link>
@@ -301,6 +301,7 @@ export function Header() {
                       src={megaMenuConfig[activeMegaMenu].image || '/images/placeholder.jpg'}
                       alt="Service Preview"
                       fill
+                      sizes="(max-width: 1024px) 100vw, 25vw"
                       className="object-cover"
                       onError={(e) => {
                         (e.target as HTMLImageElement).style.display = 'none';
